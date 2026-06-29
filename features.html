@@ -511,17 +511,34 @@
 
   (async function () {
     const REPO = "Sxarlos/EnderClient";
+    const CACHE_KEY = "ec_release";
+    const CACHE_TTL = 3600000;
+
+    function applyTag(tag) {
+      if (!tag) return;
+      const v = /^v/i.test(tag) ? tag : "v" + tag;
+      const pill = document.getElementById("ver");
+      if (pill) pill.textContent = v;
+    }
+
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (raw) {
+        const { tag, ts } = JSON.parse(raw);
+        if (Date.now() - ts < CACHE_TTL) { applyTag(tag); return; }
+      }
+    } catch (_) {}
+
     try {
       const res = await fetch("https://api.github.com/repos/" + REPO + "/releases/latest", {
-        headers: { "Accept": "application/vnd.github+json" }
+        headers: { "Accept": "application/vnd.github+json" },
+        cache: "no-store"
       });
       if (!res.ok) return;
       const data = await res.json();
       const tag = (data.tag_name || "").trim();
-      if (tag) {
-        const v = /^v/i.test(tag) ? tag : "v" + tag;
-        document.getElementById("ver").textContent = v;
-      }
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ tag, ts: Date.now() })); } catch (_) {}
+      applyTag(tag);
     } catch (_) {}
   })();
 </script>

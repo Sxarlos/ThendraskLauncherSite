@@ -875,32 +875,44 @@
 </script>
 
 <script>
-  // Reflect the latest GitHub release: update the version pill and point
-  // the Download buttons at the newest installer. Falls back silently to the
-  // static v0.3.15 / releases-latest links if GitHub is unreachable or rate-limited.
   (async function () {
     const REPO = "Sxarlos/EnderClient";
+    const CACHE_KEY = "ec_release";
+    const CACHE_TTL = 3600000;
+
+    function applyTag(tag) {
+      if (!tag) return;
+      const v = /^v/i.test(tag) ? tag : "v" + tag;
+      const pill = document.getElementById("ver");
+      if (pill) pill.textContent = v;
+    }
+    function applyExe(url) {
+      if (!url) return;
+      document.querySelectorAll("a.btn-primary").forEach(a => { a.href = url; });
+    }
+
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (raw) {
+        const { tag, exe, ts } = JSON.parse(raw);
+        if (Date.now() - ts < CACHE_TTL) { applyTag(tag); applyExe(exe); return; }
+      }
+    } catch (_) {}
+
     try {
       const res = await fetch("https://api.github.com/repos/" + REPO + "/releases/latest", {
-        headers: { "Accept": "application/vnd.github+json" }
+        headers: { "Accept": "application/vnd.github+json" },
+        cache: "no-store"
       });
       if (!res.ok) return;
       const data = await res.json();
-
       const tag = (data.tag_name || "").trim();
-      if (tag) {
-        const v = /^v/i.test(tag) ? tag : "v" + tag;
-        const pill = document.getElementById("ver");
-        if (pill) pill.textContent = v;
-      }
-
-      const exe = (data.assets || []).find(a => /\.exe$/i.test(a.name || ""));
-      if (exe && exe.browser_download_url) {
-        document.querySelectorAll("a.btn-primary").forEach(a => {
-          a.href = exe.browser_download_url;
-        });
-      }
-    } catch (_) { /* keep static fallbacks */ }
+      const exeAsset = (data.assets || []).find(a => /\.exe$/i.test(a.name || ""));
+      const exe = exeAsset ? exeAsset.browser_download_url : "";
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ tag, exe, ts: Date.now() })); } catch (_) {}
+      applyTag(tag);
+      applyExe(exe);
+    } catch (_) {}
   })();
 </script>
 <script>
