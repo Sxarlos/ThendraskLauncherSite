@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Self-Host the Presence Relay | Ender Client</title>
-<meta name="description" content="Step-by-step guide to self-hosting the Ender Client presence relay on Render (free) or your own server. Powers the friends list - your data, your infrastructure." />
+<title>Self-Host the Presence Relay | Ender Launcher</title>
+<meta name="description" content="Step-by-step guide to self-hosting the Ender Launcher presence relay on Render (free) or your own server. Powers the friends list - your data, your infrastructure." />
 <link rel="canonical" href="https://ender-client.xyz/selfhost" />
 
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -15,13 +15,13 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ender-client.xyz/selfhost" />
-<meta property="og:title" content="Self-Host the Presence Relay | Ender Client" />
-<meta property="og:description" content="Deploy the Ender Client friends relay in minutes on Render's free tier. Your presence data stays on infrastructure you control." />
+<meta property="og:title" content="Self-Host the Presence Relay | Ender Launcher" />
+<meta property="og:description" content="Deploy the Ender Launcher friends relay in minutes on Render's free tier. Your presence data stays on infrastructure you control." />
 <meta property="og:image" content="https://ender-client.xyz/assets/og.png" />
-<meta property="og:site_name" content="Ender Client" />
+<meta property="og:site_name" content="Ender Launcher" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Self-Host the Presence Relay | Ender Client" />
-<meta name="twitter:description" content="Deploy the Ender Client friends relay in minutes. Free, no database, no secrets." />
+<meta name="twitter:title" content="Self-Host the Presence Relay | Ender Launcher" />
+<meta name="twitter:description" content="Deploy the Ender Launcher friends relay in minutes. Free, no database, no secrets." />
 <meta name="twitter:image" content="https://ender-client.xyz/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
@@ -185,8 +185,8 @@
 <header>
   <nav>
     <a href="/" class="brand">
-      <img class="logo-img" src="assets/logo.png" alt="Ender Client logo" width="30" height="30" />
-      Ender Client
+      <img class="logo-img" src="assets/logo.png" alt="Ender Launcher logo" width="30" height="30" />
+      Ender Launcher
       <span class="ver" id="ver">v0.3.15</span>
     </a>
     <div class="nav-links" id="navlinks">
@@ -213,7 +213,7 @@
     <div class="wrap">
       <span class="eyebrow">Friends feature</span>
       <h1>Self-host the <span class="accent">Presence Relay</span></h1>
-      <p>The relay is a tiny Node.js server that powers Ender Client's friends list. Since your presence data should belong to you - not a third party - you run it yourself. Deploy it for free in about five minutes.</p>
+      <p>The relay is a tiny Node.js server that powers Ender Launcher's friends list. Since your presence data should belong to you - not a third party - you run it yourself. Deploy it for free in about five minutes.</p>
     </div>
   </section>
 
@@ -226,7 +226,7 @@
         <div class="how-card reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
           <h3>Friend codes</h3>
-          <p>Every Ender Client install generates a unique 10-character code. Share yours with friends and add theirs in-app - no accounts or sign-ups needed.</p>
+          <p>Every Ender Launcher install generates a unique 10-character code. Share yours with friends and add theirs in-app - no accounts or sign-ups needed.</p>
         </div>
         <div class="how-card reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
@@ -280,14 +280,14 @@
               <h4>Deploy and copy your URL</h4>
               <p>Click <strong style="color:var(--paper)">Create Web Service</strong>. Once the build completes, Render gives you a URL like:</p>
               <div class="code-block">https://ender-relay-xxxx.onrender.com</div>
-              <p style="margin-top:10px;">Copy it - you'll paste it into Ender Client next.</p>
+              <p style="margin-top:10px;">Copy it - you'll paste it into Ender Launcher next.</p>
             </div>
           </div>
           <div class="step-item">
             <span class="step-num">STEP 05</span>
             <div class="step-content">
-              <h4>Connect it in Ender Client</h4>
-              <p>Open Ender Client, go to <strong style="color:var(--paper)">Settings → API Keys → Presence Relay URL</strong>, and paste your Render URL. Friends you add will now connect through your relay.</p>
+              <h4>Connect it in Ender Launcher</h4>
+              <p>Open Ender Launcher, go to <strong style="color:var(--paper)">Settings → API Keys → Presence Relay URL</strong>, and paste your Render URL. Friends you add will now connect through your relay.</p>
             </div>
           </div>
         </div>
@@ -316,7 +316,7 @@ npm start</div>
           </h3>
           <p style="color:var(--mist);font-size:14.5px;margin-bottom:14px;">Works on any host with Node.js 18+. Set the <code style="font-family:var(--mono);font-size:12px;color:var(--ender-bright);">PORT</code> env var if your host requires a specific port.</p>
           <div class="code-block">PORT=8080 npm start</div>
-          <p style="color:var(--mist);font-size:13.5px;margin-top:12px;line-height:1.55;">Make sure the port is open in your firewall and that the relay URL you paste into Ender Client is publicly reachable.</p>
+          <p style="color:var(--mist);font-size:13.5px;margin-top:12px;line-height:1.55;">Make sure the port is open in your firewall and that the relay URL you paste into Ender Launcher is publicly reachable.</p>
         </div>
       </div>
     </div>
@@ -329,9 +329,9 @@ npm start</div>
       </h3>
       <ul class="note-list">
         <li><strong>No database or secrets required.</strong> The relay is stateless - everything is held in memory. There's nothing to configure beyond deploying the file.</li>
-        <li><strong>Render's free tier spins down after inactivity.</strong> The first poll after a cold start may take a few seconds. Ender Client handles reconnection automatically.</li>
+        <li><strong>Render's free tier spins down after inactivity.</strong> The first poll after a cold start may take a few seconds. Ender Launcher handles reconnection automatically.</li>
         <li><strong>Restarting clears all presence data.</strong> Clients re-register within 30 seconds on their next heartbeat - no manual action needed.</li>
-        <li><strong>One relay can be shared by multiple people.</strong> All your friends just need to point their Ender Client at the same URL.</li>
+        <li><strong>One relay can be shared by multiple people.</strong> All your friends just need to point their Ender Launcher at the same URL.</li>
       </ul>
     </div>
 
@@ -341,7 +341,7 @@ npm start</div>
       <div class="cta-row">
         <a class="btn btn-primary" href="/download">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
-          Download Ender Client
+          Download Ender Launcher
         </a>
         <a class="btn btn-ghost" href="https://github.com/Sxarlos/EnderClient/tree/main/relay" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -358,7 +358,7 @@ npm start</div>
     <div class="foot">
       <a href="/" class="brand">
         <img class="logo-img" src="assets/logo.png" alt="" width="26" height="26" />
-        Ender Client
+        Ender Launcher
       </a>
       <div class="foot-links">
         <a href="https://github.com/Sxarlos/EnderClient" target="_blank" rel="noopener">GitHub</a>
@@ -372,7 +372,7 @@ npm start</div>
       </div>
     </div>
     <p class="disclaimer">
-      Ender Client is an open-source, MIT-licensed launcher built with Electron and React. It does not modify Minecraft.<br />
+      Ender Launcher is an open-source, MIT-licensed launcher built with Electron and React. It does not modify Minecraft.<br />
       Not affiliated with, endorsed by, or associated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.
     </p>
   </div>

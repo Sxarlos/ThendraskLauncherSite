@@ -1,6 +1,6 @@
-# Ender Client — Marketing Site
+# Ender Launcher — Marketing Site
 
-The landing page for [Ender Client](https://github.com/Sxarlos/EnderClient), an open-source Minecraft launcher that browses Modrinth, CurseForge, FTB, ATLauncher, and Technic in one place.
+The landing page for [Ender Launcher](https://github.com/Sxarlos/EnderClient), an open-source Minecraft launcher that browses Modrinth, CurseForge, FTB, ATLauncher, and Technic in one place.
 
 ## Stack
 
@@ -16,5 +16,5 @@ To run locally just open `index.html` in a browser — no server needed.
 
 ## Related
 
-- [EnderClient](https://github.com/Sxarlos/EnderClient) — the launcher itself
+- [EnderLauncher](https://github.com/Sxarlos/EnderClient) — the launcher itself
 - [Releases](https://github.com/Sxarlos/EnderClient/releases/latest) — download the latest build
