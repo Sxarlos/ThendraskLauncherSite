@@ -25,82 +25,31 @@
 <meta name="twitter:image" content="https://ender-client.xyz/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
 
 <style>
-  :root {
-    --void: #0A0911;
-    --void-2: #0D0B16;
-    --obsidian: #15111F;
-    --edge: rgba(164, 114, 255, 0.14);
-    --edge-strong: rgba(164, 114, 255, 0.32);
-    --ender: #A472FF;
-    --ender-bright: #C7A4FF;
-    --chorus: #E06AD6;
-    --portal: #34E5C8;
-    --paper: #ECEAF6;
-    --mist: #9A95B8;
-    --mist-dim: #6B6688;
-    --display: "Chakra Petch", system-ui, sans-serif;
-    --body: "Inter", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-    --maxw: 1140px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--void); color: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-  .void-bg {
-    position: fixed; inset: 0; z-index: -2;
-    background:
-      radial-gradient(900px 600px at 78% -5%, rgba(164,114,255,0.16), transparent 60%),
-      radial-gradient(700px 500px at 12% 8%, rgba(52,229,200,0.07), transparent 55%),
-      radial-gradient(1000px 800px at 50% 110%, rgba(224,106,214,0.08), transparent 60%),
-      var(--void);
-  }
-  #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-
-  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ender); display: inline-flex; align-items: center; gap: 9px; }
-  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--edge-strong); }
-
-  .logo-img { display: block; }
-
-  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: rgba(10,9,17,0.72); border-bottom: 1px solid var(--edge); }
-  nav { max-width: var(--maxw); margin: 0 auto; padding: 12px 28px; display: flex; align-items: center; gap: 18px; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; font-size: 18px; }
-  .brand .logo-img { width: 30px; height: 30px; filter: drop-shadow(0 0 10px rgba(120,200,150,0.35)); }
-  .ver { font-family: var(--mono); font-size: 11px; color: var(--ender-bright); border: 1px solid var(--edge-strong); padding: 2px 8px; border-radius: 100px; background: rgba(164,114,255,0.08); }
-  .nav-links { margin-left: auto; display: flex; align-items: center; gap: 26px; }
-  .nav-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .nav-links a:hover { color: var(--paper); }
-  .nav-links a.active { color: var(--paper); }
-  .nav-links a.nav-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 9px; background: var(--ender); color: #110a1f; transition: transform .15s, box-shadow .15s; }
-  .nav-links a.nav-cta:hover { color: #110a1f; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(164,114,255,0.4); }
-  .nav-toggle { display: none; }
-
-  /* page hero */
-  .page-hero { padding: 72px 0 56px; }
-  .page-hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(36px, 5vw, 54px); line-height: 1.06; letter-spacing: -0.01em; margin-top: 16px; }
-  .page-hero h1 .accent { background: linear-gradient(110deg, var(--ender-bright), var(--chorus)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .page-hero p { color: var(--mist); font-size: 18px; margin-top: 14px; max-width: 38em; }
-
-  /* section blocks */
+  /* ---- features-page-specific styles ---- */
   .feat-section { padding: 0 0 72px; }
-  .section-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mist-dim); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--edge); }
 
-  /* big feature rows */
   .feat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
   .feat-row.three { grid-template-columns: repeat(3, 1fr); }
 
-  .feat-card { border: 1px solid var(--edge); border-radius: 16px; padding: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent); transition: border-color .2s, transform .2s, background .2s; }
+  .feat-card {
+    border: 1px solid var(--edge); border-radius: 16px; padding: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent);
+    transition: border-color .2s, transform .2s, background .2s;
+  }
   .feat-card:hover { border-color: var(--edge-strong); transform: translateY(-3px); background: rgba(164,114,255,0.04); }
-  .feat-card .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(164,114,255,0.12); color: var(--ender-bright); margin-bottom: 18px; }
+  .feat-card .ic {
+    width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+    background: rgba(164,114,255,0.12); color: var(--ender-bright); margin-bottom: 18px;
+    transition: transform .25s cubic-bezier(.2,.7,.2,1);
+  }
+  .feat-card:hover .ic { transform: scale(1.1) rotate(-4deg); }
   .feat-card .ic svg { width: 22px; height: 22px; }
   .feat-card h3 { font-family: var(--display); font-weight: 600; font-size: 18px; margin-bottom: 8px; }
   .feat-card p { color: var(--mist); font-size: 14.5px; line-height: 1.6; }
@@ -109,79 +58,24 @@
   .feat-card .detail li { font-family: var(--mono); font-size: 12.5px; color: var(--mist-dim); display: flex; align-items: center; gap: 8px; }
   .feat-card .detail li::before { content: "›"; color: var(--ender); font-size: 14px; }
 
-  /* sources strip */
-  .sources-strip { border: 1px solid var(--edge); border-radius: 14px; padding: 20px 24px; background: linear-gradient(180deg, rgba(164,114,255,0.04), transparent); display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-top: 14px; }
-  .chip { font-family: var(--display); font-weight: 600; font-size: 14px; color: var(--paper); padding: 7px 14px; border-radius: 100px; border: 1px solid var(--edge); background: rgba(255,255,255,0.02); }
-  .chip .d { color: var(--ender); margin-right: 6px; }
+  .sources-strip {
+    border: 1px solid var(--edge); border-radius: 14px; padding: 20px 24px;
+    background: linear-gradient(180deg, rgba(164,114,255,0.04), transparent);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-top: 14px;
+  }
+  .sources-strip .label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist-dim); }
 
-  /* themes row */
-  .themes-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
-  .theme { display: flex; align-items: center; gap: 10px; border: 1px solid var(--edge); border-radius: 100px; padding: 8px 16px 8px 10px; background: rgba(255,255,255,0.02); transition: border-color .2s, transform .2s; }
-  .theme:hover { transform: translateY(-2px); border-color: var(--edge-strong); }
-  .swatch { width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); }
-  .theme span { font-family: var(--display); font-weight: 600; font-size: 14px; }
-
-  /* comparison table */
-  .cmp-table { border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; margin-top: 14px; }
-  .cmp-row { display: grid; grid-template-columns: 1fr repeat(3, 140px); align-items: center; padding: 13px 20px; gap: 8px; }
-  .cmp-row + .cmp-row { border-top: 1px solid var(--edge); }
-  .cmp-head { background: rgba(255,255,255,0.025); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--mist-dim); text-transform: uppercase; }
-  .cmp-feat { font-family: var(--display); font-weight: 600; font-size: 14px; }
-  .cmp-good, .cmp-bad, .cmp-mid { font-family: var(--mono); font-size: 13px; display: flex; align-items: center; gap: 6px; }
-  .cmp-good svg, .cmp-bad svg { width: 14px; height: 14px; flex-shrink: 0; }
-  .cmp-good { color: var(--portal); }
-  .cmp-bad { color: rgba(224,106,214,0.7); }
-  .cmp-mid { color: var(--mist-dim); }
-
-  /* cta */
-  .page-cta { border: 1px solid var(--edge-strong); border-radius: 20px; padding: 52px 40px; text-align: center; background: radial-gradient(600px 300px at 50% -20%, rgba(164,114,255,0.2), transparent 60%), linear-gradient(180deg, var(--obsidian), var(--void-2)); margin-bottom: 80px; }
-  .page-cta h2 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.8vw, 40px); line-height: 1.1; }
-  .page-cta p { color: var(--mist); margin: 14px auto 28px; max-width: 34em; font-size: 16px; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 11px; border: 1px solid transparent; transition: transform .15s, box-shadow .15s, background .15s, border-color .15s; }
-  .btn svg { width: 18px; height: 18px; }
-  .btn-primary { background: linear-gradient(120deg, var(--ender), #8a55f0); color: #100a1d; box-shadow: 0 10px 30px rgba(164,114,255,0.32); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(164,114,255,0.45); }
-  .btn-ghost { background: rgba(255,255,255,0.02); border-color: var(--edge-strong); color: var(--paper); }
-  .btn-ghost:hover { border-color: var(--ender); background: rgba(164,114,255,0.08); }
-
-  footer { border-top: 1px solid var(--edge); padding: 40px 0 56px; }
-  .foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
-  .foot .brand { font-size: 16px; }
-  .foot .brand .logo-img { width: 26px; height: 26px; }
-  .foot-links { display: flex; gap: 22px; margin-left: auto; }
-  .foot-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .foot-links a:hover { color: var(--paper); }
-  .disclaimer { margin-top: 22px; font-family: var(--mono); font-size: 12px; color: var(--mist-dim); line-height: 1.7; }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
+  .page-cta { margin-bottom: 80px; }
 
   @media (max-width: 900px) {
     .feat-row, .feat-row.three { grid-template-columns: 1fr 1fr; }
-    .cmp-row { grid-template-columns: 1fr repeat(3, 90px); }
-    .nav-links { display: none; }
-    .nav-links.open { display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 100%; left: 0; right: 0; background: var(--void-2); border-bottom: 1px solid var(--edge); padding: 18px 28px; gap: 16px; }
-    .nav-toggle { display: grid; place-items: center; margin-left: auto; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--edge); background: transparent; color: var(--paper); cursor: pointer; }
-    .nav-toggle svg { width: 20px; height: 20px; }
   }
   @media (max-width: 640px) {
     .feat-row, .feat-row.three { grid-template-columns: 1fr; }
-    .cmp-row { grid-template-columns: 1fr repeat(3, 72px); padding: 10px 14px; }
-    .cmp-feat { font-size: 13px; }
-    .cmp-good, .cmp-bad, .cmp-mid { font-size: 11px; }
   }
   @media (max-width: 560px) {
-    .wrap { padding: 0 20px; }
-    .page-hero { padding: 52px 0 40px; }
-    .page-cta { padding: 36px 22px; }
     .feat-card { padding: 22px 20px; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-  :focus-visible { outline: 2px solid var(--ender); outline-offset: 3px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -229,8 +123,8 @@
     <div class="feat-section">
       <div class="section-label reveal">Modpack browser</div>
 
-      <div class="feat-row reveal">
-        <div class="feat-card">
+      <div class="feat-row" data-stagger>
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3>Five sources, one window</h3>
           <p>Browse Modrinth, CurseForge, FTB (modern and legacy), ATLauncher, and Technic without switching apps or opening a browser. Search, filter by category, and sort by popular, updated, or newest.</p>
@@ -242,10 +136,10 @@
             </ul>
           </div>
         </div>
-        <div class="feat-card">
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
           <h3>Isolated instances</h3>
-          <p>Every modpack - and every vanilla instance - lives in its own isolated <code style="font-family:var(--mono);font-size:12.5px;color:var(--ender-bright);background:rgba(164,114,255,0.1);padding:1px 6px;border-radius:5px;">.minecraft</code> folder. Mods from one pack can never bleed into another, and your existing Minecraft install is never touched.</p>
+          <p>Every modpack - and every vanilla instance - lives in its own isolated <code class="inline">.minecraft</code> folder. Mods from one pack can never bleed into another, and your existing Minecraft install is never touched.</p>
           <div class="detail">
             <ul>
               <li>Per-instance .minecraft directories</li>
@@ -257,7 +151,7 @@
       </div>
 
       <div class="sources-strip reveal">
-        <span style="font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist-dim);">Supported sources</span>
+        <span class="label">Supported sources</span>
         <span class="chip"><span class="d">›</span>Modrinth</span>
         <span class="chip"><span class="d">›</span>CurseForge</span>
         <span class="chip"><span class="d">›</span>FTB</span>
@@ -271,18 +165,18 @@
     <div class="feat-section">
       <div class="section-label reveal">Gameplay &amp; launching</div>
 
-      <div class="feat-row three reveal">
-        <div class="feat-card">
+      <div class="feat-row three" data-stagger>
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V5l8 4-8 4"/><path d="M12 9l8 4-8 4"/></svg></div>
           <h3>Live launch logs</h3>
           <p>First run downloads the Minecraft version and assets automatically via minecraft-launcher-core. Progress bars and full game output stream right onto the instance card in real time - no guessing if something is stalled.</p>
         </div>
-        <div class="feat-card">
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
           <h3>Shader auto-install</h3>
           <p>Thendrask Launcher watches game output for missing EuphoriaPatcher shader errors and automatically pulls the right shaders from Modrinth - no manual hunting through mod pages or version tables.</p>
         </div>
-        <div class="feat-card">
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
           <h3>In-app updates</h3>
           <p>The launcher polls GitHub Releases on startup. When a new build is available, a banner appears within the app - click once to download and install without opening a browser or losing your place.</p>
@@ -294,8 +188,8 @@
     <div class="feat-section">
       <div class="section-label reveal">Social &amp; server tools</div>
 
-      <div class="feat-row three reveal">
-        <div class="feat-card">
+      <div class="feat-row three" data-stagger>
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></div>
           <h3>Server monitor</h3>
           <p>Add servers to watch from inside the launcher. Thendrask Launcher pings each one and reports live status and current player counts - so you know before you launch whether the server is up and if your friends are already on.</p>
@@ -307,10 +201,10 @@
             </ul>
           </div>
         </div>
-        <div class="feat-card">
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <h3>Quick connect</h3>
-          <p>A dropdown next to the Play button lists every server saved in your instance's <code style="font-family:var(--mono);font-size:12.5px;color:var(--ender-bright);background:rgba(164,114,255,0.1);padding:1px 6px;border-radius:5px;">servers.dat</code>. Select one and the game launches straight into it - no menu navigation inside Minecraft.</p>
+          <p>A dropdown next to the Play button lists every server saved in your instance's <code class="inline">servers.dat</code>. Select one and the game launches straight into it - no menu navigation inside Minecraft.</p>
           <div class="detail">
             <ul>
               <li>Reads servers.dat - no re-adding required</li>
@@ -319,7 +213,7 @@
             </ul>
           </div>
         </div>
-        <div class="feat-card">
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 6.5a3 3 0 0 1 0 5.8M18 20a5.3 5.3 0 0 0-3-4.7"/></svg></div>
           <h3>Friends &amp; presence</h3>
           <p>Add friends by code and see who's online and what they're playing in real time. The social graph runs on a small relay <strong style="color:var(--paper)">you self-host</strong> - paste its URL into Settings and your presence data never leaves infrastructure you control.</p>
@@ -330,7 +224,7 @@
               <li>Self-hosted relay - your data stays yours</li>
               <li>Discord Rich Presence integration</li>
             </ul>
-            <a href="/selfhost" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);transition:border-color .15s;">Self-hosting guide →</a>
+            <a href="/selfhost" class="arrow-link" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--mono);font-size:12px;font-weight:400;">Self-hosting guide →</a>
           </div>
         </div>
       </div>
@@ -340,8 +234,8 @@
     <div class="feat-section">
       <div class="section-label reveal">Security &amp; personalisation</div>
 
-      <div class="feat-row reveal">
-        <div class="feat-card">
+      <div class="feat-row" data-stagger>
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.3 9 9 5.2-.7 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h3>Secure Microsoft login</h3>
           <p>Authentication uses Microsoft's official OAuth flow via msmc. You log in on Microsoft's own page - Thendrask Launcher never sees your password. Only an encrypted refresh token is stored in your OS keychain. Your account is as safe as it is with the official launcher.</p>
@@ -353,7 +247,7 @@
             </ul>
           </div>
         </div>
-        <div class="feat-card">
+        <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.5A4.5 4.5 0 0 1 12 3z"/><circle cx="8.5" cy="10.5" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="15.5" cy="14" r="1"/></svg></div>
           <h3>Seven built-in themes</h3>
           <p>Swap the entire launcher look in one click. Every theme is built into the app - no downloads, no restarts.</p>
@@ -373,7 +267,7 @@
     <!-- Comparison -->
     <div class="feat-section">
       <div class="section-label reveal">How it compares</div>
-      <div class="cmp-table reveal">
+      <div class="cmp-table reveal" style="margin-top:14px;">
         <div class="cmp-row cmp-head">
           <span>Feature</span>
           <span>CurseForge</span>
@@ -450,7 +344,7 @@
     </div>
 
     <!-- CTA -->
-    <div class="page-cta reveal">
+    <div class="big-cta page-cta reveal">
       <h2>Ready to try it?</h2>
       <p>Free, open source, and updated from inside the app. Download once and you're set.</p>
       <div class="cta-row">
@@ -490,69 +384,6 @@
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navtoggle');
-  const links = document.getElementById('navlinks');
-  toggle?.addEventListener('click', () => links.classList.toggle('open'));
-  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-  }
-
-  (function () {
-    if (reduce) return;
-    const c = document.getElementById('particles');
-    const ctx = c.getContext('2d');
-    let w, h, parts;
-    function size() {
-      w = c.width = window.innerWidth; h = c.height = window.innerHeight;
-      const count = Math.min(70, Math.floor(w / 22));
-      parts = Array.from({ length: count }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        r: Math.random() * 1.6 + 0.4,
-        vy: -(Math.random() * 0.35 + 0.08), vx: (Math.random() - 0.5) * 0.18,
-        a: Math.random() * 0.5 + 0.15, tw: Math.random() * Math.PI * 2
-      }));
-    }
-    size(); window.addEventListener('resize', size);
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of parts) {
-        p.y += p.vy; p.x += p.vx; p.tw += 0.02;
-        if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; }
-        const flick = 0.6 + Math.sin(p.tw) * 0.4;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180,130,255,${p.a * flick})`; ctx.fill();
-      }
-      requestAnimationFrame(tick);
-    }
-    tick();
-  })();
-
-  (async function () {
-    const RELEASE_URL = "https://ender-supporter.eosfang0.workers.dev/release";
-
-    function applyTag(tag) {
-      if (!tag) return;
-      const v = /^v/i.test(tag) ? tag : "v" + tag;
-      const pill = document.getElementById("ver");
-      if (pill) pill.textContent = v;
-    }
-
-    try {
-      const res = await fetch(RELEASE_URL);
-      if (!res.ok) return;
-      const { tag } = await res.json();
-      applyTag(tag);
-    } catch (_) {}
-  })();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

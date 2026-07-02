@@ -25,70 +25,14 @@
 <meta name="twitter:image" content="https://ender-client.xyz/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
 
 <style>
-  :root {
-    --void: #0A0911;
-    --void-2: #0D0B16;
-    --obsidian: #15111F;
-    --edge: rgba(164, 114, 255, 0.14);
-    --edge-strong: rgba(164, 114, 255, 0.32);
-    --ender: #A472FF;
-    --ender-bright: #C7A4FF;
-    --chorus: #E06AD6;
-    --portal: #34E5C8;
-    --paper: #ECEAF6;
-    --mist: #9A95B8;
-    --mist-dim: #6B6688;
-    --display: "Chakra Petch", system-ui, sans-serif;
-    --body: "Inter", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-    --maxw: 1140px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--void); color: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-  .void-bg {
-    position: fixed; inset: 0; z-index: -2;
-    background:
-      radial-gradient(900px 600px at 78% -5%, rgba(164,114,255,0.16), transparent 60%),
-      radial-gradient(700px 500px at 12% 8%, rgba(52,229,200,0.07), transparent 55%),
-      radial-gradient(1000px 800px at 50% 110%, rgba(224,106,214,0.08), transparent 60%),
-      var(--void);
-  }
-  #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-
-  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ender); display: inline-flex; align-items: center; gap: 9px; }
-  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--edge-strong); }
-
-  .logo-img { display: block; }
-
-  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: rgba(10,9,17,0.72); border-bottom: 1px solid var(--edge); }
-  nav { max-width: var(--maxw); margin: 0 auto; padding: 12px 28px; display: flex; align-items: center; gap: 18px; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; font-size: 18px; }
-  .brand .logo-img { width: 30px; height: 30px; filter: drop-shadow(0 0 10px rgba(120,200,150,0.35)); }
-  .ver { font-family: var(--mono); font-size: 11px; color: var(--ender-bright); border: 1px solid var(--edge-strong); padding: 2px 8px; border-radius: 100px; background: rgba(164,114,255,0.08); }
-  .nav-links { margin-left: auto; display: flex; align-items: center; gap: 26px; }
-  .nav-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .nav-links a:hover { color: var(--paper); }
-  .nav-links a.active { color: var(--paper); }
-  .nav-links a.nav-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 9px; background: var(--ender); color: #110a1f; transition: transform .15s, box-shadow .15s; }
-  .nav-links a.nav-cta:hover { color: #110a1f; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(164,114,255,0.4); }
-  .nav-toggle { display: none; }
-
-  /* hero */
-  .page-hero { padding: 72px 0 64px; text-align: center; }
-  .page-hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(38px, 5.4vw, 58px); line-height: 1.06; letter-spacing: -0.01em; margin-top: 16px; }
-  .page-hero h1 .accent { background: linear-gradient(110deg, var(--ender-bright), var(--chorus)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .page-hero p { color: var(--mist); font-size: 18px; margin: 14px auto 0; max-width: 36em; }
+  /* ---- download-page-specific styles ---- */
 
   /* download card */
   .dl-card {
@@ -98,28 +42,14 @@
   }
   .dl-card .platform { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist-dim); margin-bottom: 20px; }
   .dl-card .platform svg { width: 16px; height: 16px; }
+  .dl-card .cta-row { justify-content: center; }
   .dl-filename { font-family: var(--mono); font-size: 13px; color: var(--mist-dim); margin-top: 18px; }
   .dl-filename span { color: var(--ender-bright); }
   .meta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin-top: 16px; }
   .meta-row span { font-family: var(--mono); font-size: 12px; color: var(--mist-dim); display: inline-flex; align-items: center; gap: 6px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--portal); }
 
-  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 11px; border: 1px solid transparent; transition: transform .15s, box-shadow .15s, background .15s, border-color .15s; }
-  .btn svg { width: 18px; height: 18px; }
-  .btn-primary { background: linear-gradient(120deg, var(--ender), #8a55f0); color: #100a1d; box-shadow: 0 10px 30px rgba(164,114,255,0.32); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(164,114,255,0.45); }
-  .btn-ghost { background: rgba(255,255,255,0.02); border-color: var(--edge-strong); color: var(--paper); }
-  .btn-ghost:hover { border-color: var(--ender); background: rgba(164,114,255,0.08); }
-  .btn-lg { font-size: 17px; padding: 17px 32px; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-
-  /* two column layout */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
-
-  /* info panels */
-  .panel { border: 1px solid var(--edge); border-radius: 16px; padding: 28px 30px; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent); }
-  .panel h3 { font-family: var(--display); font-weight: 600; font-size: 17px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .panel h3 svg { width: 19px; height: 19px; color: var(--ender); flex-shrink: 0; }
+  .two-col { margin-bottom: 18px; }
 
   /* req list */
   .req-list { display: flex; flex-direction: column; gap: 10px; }
@@ -136,48 +66,6 @@
   .java-table tr:last-child td { border-bottom: none; }
   .java-table td:first-child { font-family: var(--mono); font-size: 13px; color: var(--ender-bright); }
   .java-table tr:hover td { background: rgba(255,255,255,0.02); }
-
-  /* steps */
-  .steps-section { margin-bottom: 18px; }
-  .step-list { display: flex; flex-direction: column; gap: 12px; }
-  .step-item { display: flex; gap: 18px; align-items: flex-start; padding: 20px 22px; border: 1px solid var(--edge); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent); transition: border-color .2s; }
-  .step-item:hover { border-color: var(--edge-strong); }
-  .step-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--ender); width: 60px; flex-shrink: 0; padding-top: 2px; }
-  .step-content h4 { font-family: var(--display); font-weight: 600; font-size: 16px; margin-bottom: 4px; }
-  .step-content p { color: var(--mist); font-size: 14.5px; line-height: 1.55; }
-  .step-content a { color: var(--ender-bright); border-bottom: 1px solid rgba(199,164,255,0.3); transition: border-color .15s; }
-  .step-content a:hover { border-color: var(--ender-bright); }
-
-  footer { border-top: 1px solid var(--edge); padding: 40px 0 56px; margin-top: 80px; }
-  .foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
-  .foot .brand { font-size: 16px; }
-  .foot .brand .logo-img { width: 26px; height: 26px; }
-  .foot-links { display: flex; gap: 22px; margin-left: auto; }
-  .foot-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .foot-links a:hover { color: var(--paper); }
-  .disclaimer { margin-top: 22px; font-family: var(--mono); font-size: 12px; color: var(--mist-dim); line-height: 1.7; }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-
-  @media (max-width: 900px) {
-    .two-col { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .nav-links.open { display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 100%; left: 0; right: 0; background: var(--void-2); border-bottom: 1px solid var(--edge); padding: 18px 28px; gap: 16px; }
-    .nav-toggle { display: grid; place-items: center; margin-left: auto; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--edge); background: transparent; color: var(--paper); cursor: pointer; }
-    .nav-toggle svg { width: 20px; height: 20px; }
-  }
-  @media (max-width: 560px) {
-    .wrap { padding: 0 20px; }
-    .page-hero { padding: 52px 0 44px; }
-    .dl-card { padding: 32px 22px; }
-    .panel { padding: 22px 20px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-  :focus-visible { outline: 2px solid var(--ender); outline-offset: 3px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -211,7 +99,7 @@
 </header>
 
 <main>
-  <section class="page-hero">
+  <section class="page-hero center">
     <div class="wrap">
       <span class="eyebrow">Free &amp; open source</span>
       <h1>Download <span class="accent">Thendrask Launcher</span></h1>
@@ -222,19 +110,19 @@
   <div class="wrap">
 
     <!-- Main download card -->
-    <div class="dl-card reveal">
+    <div class="dl-card glow reveal">
       <div class="platform">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
         Windows x64
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
+        <a class="btn btn-primary btn-lg" id="dl-btn" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
           Download for Windows
         </a>
         <a class="btn btn-ghost" href="https://github.com/Sxarlos/ThendraskLauncher/releases" target="_blank" rel="noopener">All releases</a>
       </div>
-      <p class="dl-filename">ThendraskLauncher-Setup-<span id="ver-inline">0.3.15</span>.exe</p>
+      <p class="dl-filename">ThendraskLauncher-Setup-<span id="ver-inline" data-release-raw>0.3.15</span>.exe</p>
       <div class="meta-row">
         <span><span class="dot"></span>MIT licensed</span>
         <span><span class="dot"></span>Windows 10 / 11 x64</span>
@@ -244,8 +132,8 @@
     </div>
 
     <!-- System requirements + Java -->
-    <div class="two-col reveal">
-      <div class="panel">
+    <div class="two-col" data-stagger>
+      <div class="panel glow reveal">
         <h3>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           System requirements
@@ -289,7 +177,7 @@
         </div>
       </div>
 
-      <div class="panel">
+      <div class="panel glow reveal">
         <h3>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V5l8 4-8 4"/><path d="M12 9l8 4-8 4"/></svg>
           Java version guide
@@ -318,42 +206,42 @@
         </table>
         <p style="color:var(--mist);font-size:13.5px;margin-top:16px;line-height:1.55;">
           Thendrask Launcher does not bundle Java. Download the version you need from
-          <a href="https://adoptium.net/" target="_blank" rel="noopener" style="color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);">Adoptium</a>
+          <a class="link" href="https://adoptium.net/" target="_blank" rel="noopener">Adoptium</a>
           (recommended) or
-          <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener" style="color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);">Oracle</a>.
+          <a class="link" href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener">Oracle</a>.
         </p>
       </div>
     </div>
 
     <!-- Install steps -->
-    <div class="panel steps-section reveal" style="margin-bottom:18px;">
+    <div class="panel reveal" style="margin-bottom:18px;">
       <h3>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.3 9 9 5.2-.7 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg>
         Installation steps
       </h3>
-      <div class="step-list">
-        <div class="step-item">
+      <div class="step-list" data-stagger>
+        <div class="step-item glow reveal">
           <span class="step-num">STEP 01</span>
           <div class="step-content">
             <h4>Download the installer</h4>
-            <p>Click the button above to download the latest <code style="font-family:var(--mono);font-size:12.5px;color:var(--ender-bright);background:rgba(164,114,255,0.1);padding:1px 6px;border-radius:5px;">.exe</code> installer from GitHub Releases. If your browser warns you, click "Keep" - it's unsigned but fully open-source, so you can verify it's safe on <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener" style="color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);">GitHub</a> before running it.</p>
+            <p>Click the button above to download the latest <code class="inline">.exe</code> installer from GitHub Releases. If your browser warns you, click "Keep" - it's unsigned but fully open-source, so you can verify it's safe on <a class="link" href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a> before running it.</p>
           </div>
         </div>
-        <div class="step-item">
+        <div class="step-item glow reveal">
           <span class="step-num">STEP 02</span>
           <div class="step-content">
             <h4>Run the installer</h4>
             <p>Double-click the downloaded file and follow the prompts. Choose your install location - a standard Windows installer. Thendrask Launcher will launch automatically when done.</p>
           </div>
         </div>
-        <div class="step-item">
+        <div class="step-item glow reveal">
           <span class="step-num">STEP 03</span>
           <div class="step-content">
             <h4>Sign in with Microsoft</h4>
             <p>Log in with your Microsoft account. Your password is entered on Microsoft's own page - Thendrask Launcher never sees it. Only an encrypted token is stored locally.</p>
           </div>
         </div>
-        <div class="step-item">
+        <div class="step-item glow reveal">
           <span class="step-num">STEP 04</span>
           <div class="step-content">
             <h4>Browse, install, play</h4>
@@ -370,7 +258,7 @@
         Antivirus false positives
       </h3>
       <p style="color:var(--mist);font-size:15px;line-height:1.65;">
-        Some antivirus tools flag unsigned or newly published Electron apps. Thendrask Launcher is <strong style="color:var(--paper)">fully open-source</strong> - you can read every line on <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener" style="color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);">GitHub</a> before running it. If Windows SmartScreen appears, click <strong style="color:var(--paper)">More info → Run anyway</strong>.
+        Some antivirus tools flag unsigned or newly published Electron apps. Thendrask Launcher is <strong style="color:var(--paper)">fully open-source</strong> - you can read every line on <a class="link" href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a> before running it. If Windows SmartScreen appears, click <strong style="color:var(--paper)">More info → Run anyway</strong>.
       </p>
     </div>
 
@@ -402,78 +290,6 @@
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navtoggle');
-  const links = document.getElementById('navlinks');
-  toggle?.addEventListener('click', () => links.classList.toggle('open'));
-  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-  }
-
-  (function () {
-    if (reduce) return;
-    const c = document.getElementById('particles');
-    const ctx = c.getContext('2d');
-    let w, h, parts;
-    function size() {
-      w = c.width = window.innerWidth; h = c.height = window.innerHeight;
-      const count = Math.min(70, Math.floor(w / 22));
-      parts = Array.from({ length: count }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        r: Math.random() * 1.6 + 0.4,
-        vy: -(Math.random() * 0.35 + 0.08), vx: (Math.random() - 0.5) * 0.18,
-        a: Math.random() * 0.5 + 0.15, tw: Math.random() * Math.PI * 2
-      }));
-    }
-    size(); window.addEventListener('resize', size);
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of parts) {
-        p.y += p.vy; p.x += p.vx; p.tw += 0.02;
-        if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; }
-        const flick = 0.6 + Math.sin(p.tw) * 0.4;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180,130,255,${p.a * flick})`; ctx.fill();
-      }
-      requestAnimationFrame(tick);
-    }
-    tick();
-  })();
-
-  (async function () {
-    const RELEASE_URL = "https://ender-supporter.eosfang0.workers.dev/release";
-
-    function applyTag(tag) {
-      if (!tag) return;
-      const v = /^v/i.test(tag) ? tag : "v" + tag;
-      const raw = v.replace(/^v/i, "");
-      const pill = document.getElementById("ver");
-      const inline = document.getElementById("ver-inline");
-      if (pill) pill.textContent = v;
-      if (inline) inline.textContent = raw;
-    }
-    function applyExe(url) {
-      if (!url) return;
-      const btn = document.getElementById("dl-btn");
-      if (btn) btn.href = url;
-    }
-
-    try {
-      const res = await fetch(RELEASE_URL);
-      if (!res.ok) return;
-      const { tag, exe } = await res.json();
-      applyTag(tag);
-      applyExe(exe);
-    } catch (_) {}
-  })();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

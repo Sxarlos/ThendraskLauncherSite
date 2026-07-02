@@ -26,172 +26,31 @@
 <meta name="twitter:image" content="https://ender-client.xyz/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
 
 <style>
-  :root {
-    --void: #0A0911;
-    --void-2: #0D0B16;
-    --obsidian: #15111F;
-    --obsidian-2: #1C1729;
-    --edge: rgba(164, 114, 255, 0.14);
-    --edge-strong: rgba(164, 114, 255, 0.32);
-    --ender: #A472FF;
-    --ender-bright: #C7A4FF;
-    --chorus: #E06AD6;
-    --portal: #34E5C8;
-    --paper: #ECEAF6;
-    --mist: #9A95B8;
-    --mist-dim: #6B6688;
-
-    --display: "Chakra Petch", system-ui, sans-serif;
-    --body: "Inter", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-
-    --maxw: 1140px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--void);
-    color: var(--paper);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  .void-bg {
-    position: fixed; inset: 0; z-index: -2;
-    background:
-      radial-gradient(900px 600px at 78% -5%, rgba(164,114,255,0.16), transparent 60%),
-      radial-gradient(700px 500px at 12% 8%, rgba(52,229,200,0.07), transparent 55%),
-      radial-gradient(1000px 800px at 50% 110%, rgba(224,106,214,0.08), transparent 60%),
-      var(--void);
-  }
-  #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-
-  .eyebrow {
-    font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--ender);
-    display: inline-flex; align-items: center; gap: 9px;
-  }
-  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--edge-strong); }
-
-  .logo-img {
-    display: block;
-  }
-
-  /* nav */
-  header {
-    position: sticky; top: 0; z-index: 50;
-    backdrop-filter: blur(14px);
-    background: rgba(10, 9, 17, 0.72);
-    border-bottom: 1px solid var(--edge);
-  }
-  nav { max-width: var(--maxw); margin: 0 auto; padding: 12px 28px; display: flex; align-items: center; gap: 18px; }
-  .brand {
-    display: flex; align-items: center; gap: 11px;
-    font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; font-size: 18px;
-  }
-  .brand .logo-img { width: 30px; height: 30px; filter: drop-shadow(0 0 10px rgba(120,200,150,0.35)); }
-  .ver {
-    font-family: var(--mono); font-size: 11px; color: var(--ender-bright);
-    border: 1px solid var(--edge-strong); padding: 2px 8px; border-radius: 100px;
-    background: rgba(164,114,255,0.08);
-  }
-  .nav-links { margin-left: auto; display: flex; align-items: center; gap: 26px; }
-  .nav-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .nav-links a:hover { color: var(--paper); }
-  .nav-links a.nav-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--display); font-weight: 600; font-size: 14px;
-    padding: 9px 16px; border-radius: 9px; background: var(--ender); color: #110a1f;
-    transition: transform .15s, box-shadow .15s;
-  }
-  .nav-links a.nav-cta:hover { color: #110a1f; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(164,114,255,0.4); }
-  .nav-toggle { display: none; }
+  /* ---- homepage-specific styles ---- */
 
   /* hero */
-  .hero { padding: 88px 0 76px; }
+  .hero { padding: 88px 0 64px; }
   .hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
   h1 {
     font-family: var(--display); font-weight: 700;
     font-size: clamp(40px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.01em; margin: 20px 0 0;
   }
-  h1 .accent {
-    background: linear-gradient(110deg, var(--ender-bright), var(--chorus));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
   .lede { color: var(--mist); font-size: 18px; margin-top: 22px; max-width: 30em; }
   .lede strong { color: var(--paper); font-weight: 600; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--display); font-weight: 600; font-size: 15px;
-    padding: 14px 22px; border-radius: 11px; border: 1px solid transparent;
-    transition: transform .15s, box-shadow .15s, background .15s, border-color .15s;
-  }
-  .btn svg { width: 18px; height: 18px; }
-  .btn-primary {
-    background: linear-gradient(120deg, var(--ender), #8a55f0); color: #100a1d;
-    box-shadow: 0 10px 30px rgba(164,114,255,0.32);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(164,114,255,0.45); }
-  .btn-ghost { background: rgba(255,255,255,0.02); border-color: var(--edge-strong); color: var(--paper); }
-  .btn-ghost:hover { border-color: var(--ender); background: rgba(164,114,255,0.08); }
+  .hero .cta-row { margin-top: 34px; }
   .meta-line {
     margin-top: 20px; font-family: var(--mono); font-size: 12.5px; color: var(--mist-dim);
     display: flex; flex-wrap: wrap; gap: 8px 16px;
   }
   .meta-line span { display: inline-flex; align-items: center; gap: 6px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--portal); }
-
-  /* launcher mock */
-  .mock {
-    position: relative; border-radius: 16px; border: 1px solid var(--edge-strong);
-    background: linear-gradient(180deg, var(--obsidian), var(--void-2));
-    box-shadow: 0 40px 90px -30px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.4);
-    overflow: hidden; animation: rise .9s cubic-bezier(.2,.7,.2,1) both;
-  }
-  .mock-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--edge); background: rgba(0,0,0,0.25); }
-  .mock-bar .tl { display: flex; gap: 7px; }
-  .mock-bar .tl i { width: 11px; height: 11px; border-radius: 50%; display: block; }
-  .tl i:nth-child(1){ background:#E06AD6; } .tl i:nth-child(2){ background:#F0B53C; } .tl i:nth-child(3){ background:#34E5C8; }
-  .mock-bar .title { margin-left: 8px; font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: 0.03em; color: var(--mist); }
-  .mock-body { display: grid; grid-template-columns: 52px 1fr; min-height: 380px; }
-  .mock-side { border-right: 1px solid var(--edge); padding: 14px 0; display: flex; flex-direction: column; align-items: center; gap: 6px; background: rgba(0,0,0,0.15); }
-  .mock-side .ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; color: var(--mist-dim); }
-  .mock-side .ic svg { width: 17px; height: 17px; }
-  .mock-side .ic.active { color: var(--ender-bright); background: rgba(164,114,255,0.14); box-shadow: inset 0 0 0 1px var(--edge-strong); }
-  .mock-side .spacer { flex: 1; }
-  .mock-main { padding: 16px 16px 18px; }
-  .mock-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-  .mock-head h4 { font-family: var(--display); font-weight: 600; font-size: 15px; }
-  .mock-search { font-family: var(--mono); font-size: 11px; color: var(--mist-dim); border: 1px solid var(--edge); border-radius: 8px; padding: 6px 10px; }
-  .cards { display: grid; gap: 10px; }
-  .card { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 11px; border: 1px solid var(--edge); background: rgba(255,255,255,0.015); transition: border-color .2s, transform .2s; }
-  .card:hover { border-color: var(--edge-strong); transform: translateX(2px); }
-  .card.live { border-color: var(--edge-strong); background: rgba(164,114,255,0.06); }
-  .card .thumb { width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 16px; color: #0c0814; }
-  .t-atm { background: linear-gradient(150deg,#A472FF,#6f44d8); }
-  .t-van { background: linear-gradient(150deg,#34E5C8,#1f9e8c); color:#04201b; }
-  .t-prom { background: linear-gradient(150deg,#E06AD6,#9a3e93); }
-  .card .info { flex: 1; min-width: 0; }
-  .card .name { font-weight: 600; font-size: 13.5px; display: flex; align-items: center; gap: 8px; }
-  .card .tag { font-family: var(--mono); font-size: 10px; color: var(--mist); border: 1px solid var(--edge); border-radius: 5px; padding: 1px 6px; }
-  .card .sub { font-family: var(--mono); font-size: 11px; color: var(--mist-dim); margin-top: 3px; }
-  .card .play { width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0; display: grid; place-items: center; background: var(--ender); color: #110a1f; box-shadow: 0 6px 16px rgba(164,114,255,0.4); }
-  .card .play svg { width: 15px; height: 15px; }
-  .progress { margin-top: 8px; height: 5px; border-radius: 100px; background: rgba(255,255,255,0.07); overflow: hidden; }
-  .progress i { display: block; height: 100%; width: 64%; background: linear-gradient(90deg, var(--ender), var(--chorus)); border-radius: 100px; animation: load 2.6s ease-in-out infinite; }
 
   /* real hero screenshot */
   .hero-shot {
@@ -202,6 +61,27 @@
   }
   .hero-shot img { display: block; width: 100%; height: auto; }
 
+  /* live stats strip */
+  .stats { padding: 0 0 22px; }
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    border: 1px solid var(--edge); border-radius: 16px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  }
+  .stat { padding: 22px 26px; border-left: 1px solid var(--edge); }
+  .stat:first-child { border-left: none; }
+  .stat .num {
+    font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1.15;
+    color: var(--paper); font-variant-numeric: tabular-nums;
+  }
+  .stat .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist-dim); margin-top: 4px; }
+  @media (max-width: 720px) {
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+    .stat { border-top: 1px solid var(--edge); }
+    .stat:nth-child(-n+2) { border-top: none; }
+    .stat:nth-child(odd) { border-left: none; }
+  }
+
   /* sources */
   .sources { padding: 8px 0 64px; }
   .sources .strip {
@@ -210,9 +90,6 @@
     padding: 26px 30px; display: flex; align-items: center; flex-wrap: wrap; gap: 14px 26px;
   }
   .sources .label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist-dim); margin-right: 6px; }
-  .chip { font-family: var(--display); font-weight: 600; font-size: 14.5px; color: var(--paper); padding: 8px 15px; border-radius: 100px; border: 1px solid var(--edge); background: rgba(255,255,255,0.02); transition: border-color .2s; }
-  .chip:hover { border-color: var(--edge-strong); }
-  .chip .d { color: var(--ender); margin-right: 7px; }
 
   /* sections */
   section.block { padding: 80px 0; }
@@ -224,7 +101,8 @@
   .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .feat { border: 1px solid var(--edge); border-radius: 14px; padding: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent); transition: border-color .2s, transform .2s, background .2s; }
   .feat:hover { border-color: var(--edge-strong); transform: translateY(-3px); background: rgba(164,114,255,0.04); }
-  .feat .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: rgba(164,114,255,0.12); color: var(--ender-bright); margin-bottom: 16px; }
+  .feat .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: rgba(164,114,255,0.12); color: var(--ender-bright); margin-bottom: 16px; transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+  .feat:hover .ic { transform: scale(1.1) rotate(-4deg); }
   .feat .ic svg { width: 21px; height: 21px; }
   .feat h3 { font-family: var(--display); font-weight: 600; font-size: 17px; margin-bottom: 7px; }
   .feat p { color: var(--mist); font-size: 14.5px; line-height: 1.55; }
@@ -234,7 +112,7 @@
   .shot {
     border-radius: 14px; border: 1px solid var(--edge); overflow: hidden;
     background: linear-gradient(180deg, var(--obsidian), var(--void-2));
-    transition: border-color .2s, transform .2s; position: relative;
+    transition: border-color .2s, transform .2s;
   }
   .shot:hover { border-color: var(--edge-strong); transform: translateY(-3px); }
   .shot .chrome { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid var(--edge); background: rgba(0,0,0,0.25); }
@@ -242,40 +120,6 @@
   .shot .chrome i:first-child { background: var(--chorus); }
   .shot .chrome span { margin-left: 6px; font-family: var(--mono); font-size: 11px; color: var(--mist); }
   .shot img { display: block; width: 100%; height: auto; }
-  /* placeholder state until real screenshots are added */
-  .shot .ph {
-    aspect-ratio: 16 / 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-    background:
-      radial-gradient(400px 200px at 50% 30%, rgba(164,114,255,0.08), transparent 70%),
-      repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 12px);
-    color: var(--mist-dim);
-  }
-  .shot .ph img { width: 52px; height: 52px; image-rendering: pixelated; opacity: 0.5; }
-  .shot .ph .cap { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; }
-
-  /* themes */
-  .themes-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
-  .theme { display: flex; align-items: center; gap: 11px; border: 1px solid var(--edge); border-radius: 100px; padding: 9px 16px 9px 11px; background: rgba(255,255,255,0.02); transition: border-color .2s, transform .2s; }
-  .theme:hover { transform: translateY(-2px); border-color: var(--edge-strong); }
-  .swatch { width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); }
-  .theme span { font-family: var(--display); font-weight: 600; font-size: 14px; }
-
-  /* split panels */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .panel { border: 1px solid var(--edge); border-radius: 16px; padding: 30px; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent); }
-  .panel h3 { font-family: var(--display); font-weight: 600; font-size: 19px; margin-bottom: 12px; display:flex; align-items:center; gap:10px; }
-  .panel h3 svg { width: 20px; height: 20px; color: var(--ender); }
-  .panel p { color: var(--mist); font-size: 15px; }
-  .panel.portal h3 svg { color: var(--portal); }
-  code.inline { font-family: var(--mono); font-size: 13px; color: var(--ender-bright); background: rgba(164,114,255,0.1); padding: 1px 7px; border-radius: 5px; }
-
-  /* install */
-  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-  .step { border: 1px solid var(--edge); border-radius: 14px; padding: 24px; }
-  .step .n { font-family: var(--mono); font-size: 12px; color: var(--ender); letter-spacing: 0.1em; }
-  .step h3 { font-family: var(--display); font-weight: 600; font-size: 17px; margin: 10px 0 8px; }
-  .step p { color: var(--mist); font-size: 14.5px; }
-  .step p code { font-family: var(--mono); font-size: 12.5px; color: var(--ender-bright); }
 
   /* ram comparison */
   .ram-chart { display: flex; flex-direction: column; gap: 18px; max-width: 740px; }
@@ -286,26 +130,28 @@
   .ram-badge-warn { color: var(--chorus); border-color: rgba(224,106,214,0.35); }
   .ram-val { font-family: var(--mono); font-size: 12px; color: var(--mist-dim); white-space: nowrap; }
   .ram-track { height: 32px; background: rgba(255,255,255,0.035); border-radius: 9px; border: 1px solid var(--edge); overflow: hidden; }
-  .ram-fill { height: 100%; border-radius: 8px; transition: width .6s cubic-bezier(.2,.7,.2,1); }
+  .ram-fill { height: 100%; border-radius: 8px; width: var(--w); transition: width 1.1s cubic-bezier(.2,.7,.2,1) .15s; }
+  /* bars fill from zero when the chart scrolls into view */
+  .js .ram-chart .ram-fill { width: 0; }
+  .js .ram-chart.in .ram-fill { width: var(--w); }
   .ram-fill-high  { background: linear-gradient(90deg, rgba(224,106,214,0.55) 0%, rgba(200,80,180,0.2) 100%); }
   .ram-fill-ender { background: linear-gradient(90deg, var(--ender) 0%, rgba(164,114,255,0.45) 100%); box-shadow: 0 0 22px rgba(164,114,255,0.35); }
   .ram-fill-low   { background: linear-gradient(90deg, rgba(52,229,200,0.55) 0%, rgba(52,229,200,0.18) 100%); }
   .ram-row-ender .ram-track { border-color: var(--edge-strong); }
   .ram-note { margin-top: 18px; font-family: var(--mono); font-size: 11.5px; color: var(--mist-dim); line-height: 1.65; }
-  .cmp-table { margin-top: 28px; border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; max-width: 740px; }
-  .cmp-row { display: grid; grid-template-columns: 1fr repeat(3, 130px); align-items: center; padding: 12px 18px; gap: 8px; }
-  .cmp-row + .cmp-row { border-top: 1px solid var(--edge); }
-  .cmp-head { background: rgba(255,255,255,0.025); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--mist-dim); text-transform: uppercase; }
-  .cmp-feat { font-family: var(--display); font-weight: 600; font-size: 14px; }
-  .cmp-good, .cmp-bad { font-family: var(--mono); font-size: 13px; display: flex; align-items: center; gap: 6px; }
-  .cmp-good svg, .cmp-bad svg { width: 14px; height: 14px; flex-shrink: 0; }
-  .cmp-good { color: var(--portal); }
-  .cmp-bad  { color: rgba(224,106,214,0.7); }
+  .cmp-table { margin-top: 28px; max-width: 740px; }
+  .cmp-table .cmp-row { grid-template-columns: 1fr repeat(3, 130px); padding: 12px 18px; }
   @media (max-width: 640px) {
-    .cmp-row { grid-template-columns: 1fr repeat(3, 72px); padding: 10px 14px; gap: 4px; }
-    .cmp-feat { font-size: 13px; }
-    .cmp-good, .cmp-bad { font-size: 11px; }
+    .cmp-table .cmp-row { grid-template-columns: 1fr repeat(3, 72px); padding: 10px 14px; }
   }
+
+  /* install steps */
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .step { border: 1px solid var(--edge); border-radius: 14px; padding: 24px; transition: border-color .2s, transform .2s; }
+  .step:hover { border-color: var(--edge-strong); transform: translateY(-3px); }
+  .step .n { font-family: var(--mono); font-size: 12px; color: var(--ender); letter-spacing: 0.1em; }
+  .step h3 { font-family: var(--display); font-weight: 600; font-size: 17px; margin: 10px 0 8px; }
+  .step p { color: var(--mist); font-size: 14.5px; }
 
   /* support */
   .support {
@@ -374,56 +220,19 @@
     opacity: 0.7; display: block; margin-top: 1px;
   }
   .s-alt { font-size: 14px; color: var(--mist); }
-  .s-alt a { color: var(--ender-bright); border-bottom: 1px solid rgba(199,164,255,0.3); transition: border-color .15s; }
-  .s-alt a:hover { border-color: var(--ender-bright); }
-
-  /* final */
-  .final {
-    border: 1px solid var(--edge-strong); border-radius: 20px; padding: 56px 40px; text-align: center;
-    background: radial-gradient(600px 300px at 50% -20%, rgba(164,114,255,0.2), transparent 60%), linear-gradient(180deg, var(--obsidian), var(--void-2));
-  }
-  .final h2 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.08; }
-  .final p { color: var(--mist); margin: 16px auto 30px; max-width: 34em; font-size: 17px; }
-
-  /* footer */
-  footer { border-top: 1px solid var(--edge); padding: 40px 0 56px; margin-top: 80px; }
-  .foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
-  .foot .brand { font-size: 16px; }
-  .foot .brand .logo-img { width: 26px; height: 26px; }
-  .foot-links { display: flex; gap: 22px; margin-left: auto; }
-  .foot-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .foot-links a:hover { color: var(--paper); }
-  .disclaimer { margin-top: 22px; font-family: var(--mono); font-size: 12px; color: var(--mist-dim); line-height: 1.7; }
-
-  @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-  @keyframes load { 0%{ width: 18%; } 50%{ width: 78%; } 100%{ width: 18%; } }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
 
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-    .mock { max-width: 520px; }
     .feat-grid, .steps { grid-template-columns: 1fr 1fr; }
-    .split, .gallery { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .nav-links.open { display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 100%; left: 0; right: 0; background: var(--void-2); border-bottom: 1px solid var(--edge); padding: 18px 28px; gap: 16px; }
-    .nav-toggle { display: grid; place-items: center; margin-left: auto; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--edge); background: transparent; color: var(--paper); cursor: pointer; }
-    .nav-toggle svg { width: 20px; height: 20px; }
+    .gallery { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
-    .wrap { padding: 0 20px; }
     .feat-grid, .steps { grid-template-columns: 1fr; }
-    .hero { padding: 56px 0 50px; }
+    .hero { padding: 56px 0 44px; }
     section.block { padding: 56px 0; }
-    .final { padding: 40px 24px; }
-    .mock-body { min-height: 340px; }
+    .stat { padding: 16px 20px; }
+    .stat .num { font-size: 24px; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-  :focus-visible { outline: 2px solid var(--ender); outline-offset: 3px; border-radius: 4px; }
 </style>
 
 <script type="application/ld+json">
@@ -507,7 +316,7 @@
         <h1>One launcher.<br /><span class="accent">Every modpack source.</span></h1>
         <p class="lede">Thendrask Launcher is a <strong>free, open-source Minecraft launcher for Windows</strong>. Install and manage modpacks from <strong>Modrinth, CurseForge, FTB, ATLauncher</strong> and <strong>Technic</strong> - isolated instances, live logs, shader support, and the official game. <strong>Just an interface</strong> - your install stays untouched.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
+          <a class="btn btn-primary" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
             Download for Windows
           </a>
@@ -524,9 +333,35 @@
         </div>
       </div>
 
-      <!-- hero: real home screen -->
-      <div class="hero-shot">
-        <img src="assets/screenshots/home.webp" alt="Thendrask Launcher home screen - Welcome to Thendrask Launcher, with Browse Modpacks and New Instance buttons and a library grid" width="1163" height="746" />
+      <!-- hero: real home screen (tilts with the cursor, click to zoom) -->
+      <div class="tilt-wrap">
+        <div class="hero-shot" data-tilt>
+          <img src="assets/screenshots/home.webp" data-lightbox data-caption="Thendrask Launcher - home screen" alt="Thendrask Launcher home screen - Welcome to Thendrask Launcher, with Browse Modpacks and New Instance buttons and a library grid" width="1163" height="746" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE STATS -->
+  <section class="stats" aria-label="Project statistics">
+    <div class="wrap">
+      <div class="stats-strip reveal" id="gh-stats">
+        <div class="stat">
+          <div class="num"><span class="count" id="stat-downloads">—</span></div>
+          <div class="lbl">Downloads</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span class="count" id="stat-stars">—</span></div>
+          <div class="lbl">GitHub stars</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span class="count" data-count="6">6</span></div>
+          <div class="lbl">Modpack sources</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span class="count" data-count="7">7</span></div>
+          <div class="lbl">Built-in themes</div>
+        </div>
       </div>
     </div>
   </section>
@@ -554,25 +389,25 @@
         <h2>Everything you need to play, nothing you don't.</h2>
         <p>A focused launcher built with Electron and React. Sign in, find a pack, launch it - with live logs, isolated instances, and the conveniences that usually take three different tools.</p>
       </div>
-      <div class="feat-grid">
-        <div class="feat reveal">
+      <div class="feat-grid" data-stagger>
+        <div class="feat glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3>Multi-source modpack browser</h3>
           <p>Search five providers from one window. Sort Modrinth and CurseForge by popular, updated or newest, and filter by category.</p>
         </div>
-        <div class="feat reveal">
+        <div class="feat glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
           <h3>Isolated instances</h3>
           <p>Vanilla or modded, any version, each with its own clean <code class="inline">.minecraft</code> folder. No cross-contamination between packs.</p>
         </div>
-        <div class="feat reveal">
+        <div class="feat glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 6.5a3 3 0 0 1 0 5.8M18 20a5.3 5.3 0 0 0-3-4.7"/></svg></div>
           <h3>Friends &amp; presence</h3>
           <p>Add friends by code and see who's online and what they're playing - powered by a relay you self-host, so the social graph is yours.</p>
         </div>
       </div>
       <div style="margin-top:28px;text-align:center;">
-        <a href="/features" style="font-family:var(--display);font-weight:600;font-size:14px;color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);transition:border-color .15s;">See the full feature breakdown →</a>
+        <a href="/features" class="arrow-link">See the full feature breakdown →</a>
       </div>
     </div>
   </section>
@@ -583,16 +418,16 @@
       <div class="sec-head reveal">
         <span class="eyebrow">See it in action</span>
         <h2>The launcher, up close.</h2>
-        <p>Real captures from Thendrask Launcher. Built to feel native, fast, and out of your way.</p>
+        <p>Real captures from Thendrask Launcher. Built to feel native, fast, and out of your way. Click any screenshot to zoom.</p>
       </div>
-      <div class="gallery">
+      <div class="gallery" data-stagger>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>Modpack browser - six sources</span></div>
-          <img src="assets/screenshots/browse.webp" alt="Browsing CurseForge modpacks in Thendrask Launcher - RLCraft, Pixelmon and All the Mods 10 with install buttons" width="1166" height="751" />
+          <img src="assets/screenshots/browse.webp" data-lightbox data-caption="Modpack browser - six sources" alt="Browsing CurseForge modpacks in Thendrask Launcher - RLCraft, Pixelmon and All the Mods 10 with install buttons" width="1166" height="751" />
         </div>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>Server monitor - live status</span></div>
-          <img src="assets/screenshots/servers.webp" alt="Server monitor in Thendrask Launcher showing Hypixel with a live player count and ping" width="1165" height="754" />
+          <img src="assets/screenshots/servers.webp" data-lightbox data-caption="Server monitor - live status" alt="Server monitor in Thendrask Launcher showing Hypixel with a live player count and ping" width="1165" height="754" />
         </div>
       </div>
     </div>
@@ -605,7 +440,7 @@
         <span class="eyebrow">Make it yours</span>
         <h2>Seven themes, one void.</h2>
       </div>
-      <div class="themes-row reveal">
+      <div class="themes-row reveal" style="margin-top:8px;">
         <div class="theme"><span class="swatch" style="background:linear-gradient(135deg,#A472FF,#5b2bc9)"></span><span>Thendrask</span></div>
         <div class="theme"><span class="swatch" style="background:linear-gradient(135deg,#C77DFF,#7b3ff2)"></span><span>Amethyst</span></div>
         <div class="theme"><span class="swatch" style="background:linear-gradient(135deg,#34E5C8,#2477d6)"></span><span>Ocean</span></div>
@@ -619,12 +454,12 @@
 
   <!-- HONESTY SPLIT -->
   <section class="block" style="padding-top:0;">
-    <div class="wrap split">
-      <div class="panel reveal">
+    <div class="wrap two-col" data-stagger>
+      <div class="panel glow reveal">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.3 9 9 5.2-.7 9-4 9-9V7z"/></svg>Just an interface</h3>
         <p>Thendrask Launcher downloads modpacks and spawns the <strong style="color:var(--paper)">official</strong> Minecraft game. It doesn't modify Minecraft itself, and it isn't affiliated with Mojang or Microsoft. You still need a genuine account to play.</p>
       </div>
-      <div class="panel portal reveal">
+      <div class="panel portal glow reveal">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18 22 12 16 6M8 6 2 12 8 18"/></svg>Open source &amp; self-hostable</h3>
         <p>MIT-licensed and on GitHub. The friends feature runs on a small relay you host yourself - paste its URL into <code class="inline">Settings → API Keys</code> and your presence data never leaves infrastructure you control.</p>
       </div>
@@ -646,7 +481,7 @@
             <span class="ram-val">~200 MB idle</span>
           </div>
           <div class="ram-track">
-            <div class="ram-fill ram-fill-high" style="width:100%"></div>
+            <div class="ram-fill ram-fill-high" style="--w:100%"></div>
           </div>
         </div>
         <div class="ram-row ram-row-ender">
@@ -655,7 +490,7 @@
             <span class="ram-val">~30–40 MB idle</span>
           </div>
           <div class="ram-track">
-            <div class="ram-fill ram-fill-ender" style="width:18%"></div>
+            <div class="ram-fill ram-fill-ender" style="--w:18%"></div>
           </div>
         </div>
         <div class="ram-row">
@@ -664,7 +499,7 @@
             <span class="ram-val">~22 MB idle</span>
           </div>
           <div class="ram-track">
-            <div class="ram-fill ram-fill-low" style="width:11%"></div>
+            <div class="ram-fill ram-fill-low" style="--w:11%"></div>
           </div>
         </div>
       </div>
@@ -695,25 +530,25 @@
         <h2>Playing in three steps.</h2>
         <p>You'll need Java installed to launch the game - Java 21 for 1.20.5+, Java 17 for 1.17–1.20.4, Java 8 for older versions.</p>
       </div>
-      <div class="steps">
-        <div class="step reveal">
+      <div class="steps" data-stagger>
+        <div class="step glow reveal">
           <div class="n">STEP 01</div>
           <h3>Download &amp; install</h3>
           <p>Grab the latest Windows installer from GitHub Releases and run it. Choose your install location - it's a standard installer.</p>
         </div>
-        <div class="step reveal">
+        <div class="step glow reveal">
           <div class="n">STEP 02</div>
           <h3>Sign in &amp; pick a pack</h3>
           <p>Log in with your Microsoft account, then browse the modpack sources and install whatever you fancy, or create a clean instance.</p>
         </div>
-        <div class="step reveal">
+        <div class="step glow reveal">
           <div class="n">STEP 03</div>
           <h3>Hit launch</h3>
           <p>First launch downloads the version and assets automatically. Watch the progress on the card, then you're in the game.</p>
         </div>
       </div>
       <div style="margin-top:28px;text-align:center;">
-        <a href="/download" style="font-family:var(--display);font-weight:600;font-size:14px;color:var(--ender-bright);border-bottom:1px solid rgba(199,164,255,0.3);transition:border-color .15s;">Full install guide &amp; system requirements →</a>
+        <a href="/download" class="arrow-link">Full install guide &amp; system requirements →</a>
       </div>
     </div>
   </section>
@@ -753,7 +588,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3L22 9.3l-5 5 1.2 7L12 18l-6.2 3.3 1.2-7-5-5 7.1-1z"/></svg>
           <span>Elytra<span class="tier-label">$50 lifetime</span></span>
         </a>
-        <span class="s-alt">or <a href="https://buymeacoffee.com/sxarlos" target="_blank" rel="noopener">buy me a coffee ☕</a></span>
+        <span class="s-alt">or <a class="link" href="https://buymeacoffee.com/sxarlos" target="_blank" rel="noopener">buy me a coffee ☕</a></span>
       </div>
     </div>
   </section>
@@ -761,11 +596,11 @@
   <!-- FINAL CTA -->
   <section class="block" style="padding-top:0;">
     <div class="wrap">
-      <div class="final reveal">
-        <h2>Ready to enter the End?</h2>
+      <div class="big-cta reveal">
+        <h2>Ready to enter <span class="accent">the End</span>?</h2>
         <p>Free, open source, and updated from inside the app. Download once and you're set.</p>
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
+        <div class="cta-row">
+          <a class="btn btn-primary" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
             Download for Windows
           </a>
@@ -804,116 +639,6 @@
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navtoggle');
-  const links = document.getElementById('navlinks');
-  toggle?.addEventListener('click', () => links.classList.toggle('open'));
-  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-  }
-
-  (function () {
-    if (reduce) return;
-    const c = document.getElementById('particles');
-    const ctx = c.getContext('2d');
-    let w, h, parts;
-    function size() {
-      w = c.width = window.innerWidth; h = c.height = window.innerHeight;
-      const count = Math.min(70, Math.floor(w / 22));
-      parts = Array.from({ length: count }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        r: Math.random() * 1.6 + 0.4,
-        vy: -(Math.random() * 0.35 + 0.08), vx: (Math.random() - 0.5) * 0.18,
-        a: Math.random() * 0.5 + 0.15, tw: Math.random() * Math.PI * 2
-      }));
-    }
-    size(); window.addEventListener('resize', size);
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of parts) {
-        p.y += p.vy; p.x += p.vx; p.tw += 0.02;
-        if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; }
-        const flick = 0.6 + Math.sin(p.tw) * 0.4;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180,130,255,${p.a * flick})`; ctx.fill();
-      }
-      requestAnimationFrame(tick);
-    }
-    tick();
-  })();
-</script>
-
-<script>
-  (async function () {
-    const RELEASE_URL = "https://ender-supporter.eosfang0.workers.dev/release";
-
-    function applyTag(tag) {
-      if (!tag) return;
-      const v = /^v/i.test(tag) ? tag : "v" + tag;
-      const pill = document.getElementById("ver");
-      if (pill) pill.textContent = v;
-    }
-    function applyExe(url) {
-      if (!url) return;
-      document.querySelectorAll("a.btn-primary").forEach(a => { a.href = url; });
-    }
-
-    try {
-      const res = await fetch(RELEASE_URL);
-      if (!res.ok) return;
-      const { tag, exe } = await res.json();
-      applyTag(tag);
-      applyExe(exe);
-    } catch (_) {}
-  })();
-</script>
-<script>
-  // Replace this URL with your deployed Cloudflare Worker URL once the worker is set up
-  const SUPPORTERS_API = 'https://ender-supporter.eosfang0.workers.dev/supporters';
-
-  const TIER_CLASSES = { 'end crystal': 's-av-end-crystal', 'elytra': 's-av-elytra' };
-
-  function esc(str) {
-    return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-
-  (async function loadSupporters() {
-    const grid = document.getElementById('supporters-grid');
-    if (!grid) return;
-    try {
-      const res = await fetch(SUPPORTERS_API, { cache: 'no-store' });
-      if (!res.ok) throw new Error('fetch failed');
-      const list = await res.json();
-      if (!Array.isArray(list) || list.length === 0) {
-        grid.innerHTML = '<span class="s-empty">Be the first supporter!</span>';
-        return;
-      }
-      grid.innerHTML = list.map(s => {
-        const name = s.name || 'Anonymous';
-        const tier = s.tier || 'Supporter';
-        const tierKey = tier.toLowerCase();
-        const avClass = TIER_CLASSES[tierKey] || 's-av-default';
-        const initial = name.trim()[0]?.toUpperCase() || '?';
-        return `<div class="s-chip">
-          <span class="s-av ${avClass}">${esc(initial)}</span>
-          <span>
-            <div class="s-name">${esc(name)}</div>
-            <div class="s-tier">${esc(tier)}</div>
-          </span>
-        </div>`;
-      }).join('');
-    } catch (_) {
-      if (grid) grid.innerHTML = '';
-    }
-  })();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

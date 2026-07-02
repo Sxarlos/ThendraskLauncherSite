@@ -25,100 +25,27 @@
 <meta name="twitter:image" content="https://ender-client.xyz/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
 
 <style>
-  :root {
-    --void: #0A0911;
-    --void-2: #0D0B16;
-    --obsidian: #15111F;
-    --edge: rgba(164, 114, 255, 0.14);
-    --edge-strong: rgba(164, 114, 255, 0.32);
-    --ender: #A472FF;
-    --ender-bright: #C7A4FF;
-    --chorus: #E06AD6;
-    --portal: #34E5C8;
-    --paper: #ECEAF6;
-    --mist: #9A95B8;
-    --mist-dim: #6B6688;
-    --display: "Chakra Petch", system-ui, sans-serif;
-    --body: "Inter", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-    --maxw: 1140px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--void); color: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-  .void-bg {
-    position: fixed; inset: 0; z-index: -2;
-    background:
-      radial-gradient(900px 600px at 78% -5%, rgba(164,114,255,0.16), transparent 60%),
-      radial-gradient(700px 500px at 12% 8%, rgba(52,229,200,0.07), transparent 55%),
-      radial-gradient(1000px 800px at 50% 110%, rgba(224,106,214,0.08), transparent 60%),
-      var(--void);
-  }
-  #particles { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
-
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-
-  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ender); display: inline-flex; align-items: center; gap: 9px; }
-  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--edge-strong); }
-
-  .logo-img { display: block; }
-
-  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: rgba(10,9,17,0.72); border-bottom: 1px solid var(--edge); }
-  nav { max-width: var(--maxw); margin: 0 auto; padding: 12px 28px; display: flex; align-items: center; gap: 18px; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; font-size: 18px; }
-  .brand .logo-img { width: 30px; height: 30px; filter: drop-shadow(0 0 10px rgba(120,200,150,0.35)); }
-  .ver { font-family: var(--mono); font-size: 11px; color: var(--ender-bright); border: 1px solid var(--edge-strong); padding: 2px 8px; border-radius: 100px; background: rgba(164,114,255,0.08); }
-  .nav-links { margin-left: auto; display: flex; align-items: center; gap: 26px; }
-  .nav-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .nav-links a:hover { color: var(--paper); }
-  .nav-links a.active { color: var(--paper); }
-  .nav-links a.nav-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 9px; background: var(--ender); color: #110a1f; transition: transform .15s, box-shadow .15s; }
-  .nav-links a.nav-cta:hover { color: #110a1f; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(164,114,255,0.4); }
-  .nav-toggle { display: none; }
-
-  /* hero */
-  .page-hero { padding: 72px 0 64px; text-align: center; }
-  .page-hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(38px, 5.4vw, 58px); line-height: 1.06; letter-spacing: -0.01em; margin-top: 16px; }
-  .page-hero h1 .accent { background: linear-gradient(110deg, var(--ender-bright), var(--chorus)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .page-hero p { color: var(--mist); font-size: 18px; margin: 14px auto 0; max-width: 38em; }
+  /* ---- selfhost-page-specific styles ---- */
 
   /* how it works cards */
   .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 40px 0 64px; }
-  .how-card { border: 1px solid var(--edge); border-radius: 16px; padding: 26px 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent); }
+  .how-card {
+    border: 1px solid var(--edge); border-radius: 16px; padding: 26px 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent);
+    transition: border-color .2s, transform .2s;
+  }
+  .how-card:hover { border-color: var(--edge-strong); transform: translateY(-3px); }
   .how-card .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: rgba(164,114,255,0.12); color: var(--ender-bright); margin-bottom: 16px; }
   .how-card .ic svg { width: 21px; height: 21px; }
   .how-card h3 { font-family: var(--display); font-weight: 600; font-size: 16px; margin-bottom: 7px; }
   .how-card p { color: var(--mist); font-size: 14px; line-height: 1.6; }
-
-  /* panels */
-  .panel { border: 1px solid var(--edge); border-radius: 16px; padding: 28px 30px; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent); }
-  .panel h3 { font-family: var(--display); font-weight: 600; font-size: 17px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .panel h3 svg { width: 19px; height: 19px; color: var(--ender); flex-shrink: 0; }
-
-  /* steps */
-  .step-list { display: flex; flex-direction: column; gap: 12px; }
-  .step-item { display: flex; gap: 18px; align-items: flex-start; padding: 20px 22px; border: 1px solid var(--edge); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent); transition: border-color .2s; }
-  .step-item:hover { border-color: var(--edge-strong); }
-  .step-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--ender); width: 60px; flex-shrink: 0; padding-top: 2px; }
-  .step-content h4 { font-family: var(--display); font-weight: 600; font-size: 16px; margin-bottom: 6px; }
-  .step-content p { color: var(--mist); font-size: 14.5px; line-height: 1.55; }
-  .step-content a { color: var(--ender-bright); border-bottom: 1px solid rgba(199,164,255,0.3); transition: border-color .15s; }
-  .step-content a:hover { border-color: var(--ender-bright); }
-
-  /* code block */
-  .code-block { margin-top: 10px; background: rgba(0,0,0,0.35); border: 1px solid var(--edge); border-radius: 10px; padding: 12px 16px; font-family: var(--mono); font-size: 13px; color: var(--ender-bright); overflow-x: auto; white-space: pre; }
-  .code-block .cm { color: var(--mist-dim); }
-
-  /* two col */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 
   /* note panel */
   .note-panel { border: 1px solid rgba(52,229,200,0.2); border-radius: 16px; padding: 24px 28px; background: linear-gradient(180deg, rgba(52,229,200,0.04), transparent); }
@@ -131,51 +58,23 @@
 
   /* section spacing */
   .section { margin-bottom: 56px; }
-  .section-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mist-dim); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--edge); }
 
-  /* cta */
-  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15px; padding: 14px 22px; border-radius: 11px; border: 1px solid transparent; transition: transform .15s, box-shadow .15s, background .15s, border-color .15s; }
-  .btn svg { width: 18px; height: 18px; }
-  .btn-primary { background: linear-gradient(120deg, var(--ender), #8a55f0); color: #100a1d; box-shadow: 0 10px 30px rgba(164,114,255,0.32); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(164,114,255,0.45); }
-  .btn-ghost { background: rgba(255,255,255,0.02); border-color: var(--edge-strong); color: var(--paper); }
-  .btn-ghost:hover { border-color: var(--ender); background: rgba(164,114,255,0.08); }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  /* final CTA */
+  .end-cta { text-align: center; margin-bottom: 80px; }
+  .end-cta .cta-row { justify-content: center; }
+  .end-cta > p { color: var(--mist); font-size: 16px; margin-bottom: 24px; }
 
-  footer { border-top: 1px solid var(--edge); padding: 40px 0 56px; margin-top: 80px; }
-  .foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
-  .foot .brand { font-size: 16px; }
-  .foot .brand .logo-img { width: 26px; height: 26px; }
-  .foot-links { display: flex; gap: 22px; margin-left: auto; }
-  .foot-links a { font-size: 14px; color: var(--mist); transition: color .18s; }
-  .foot-links a:hover { color: var(--paper); }
-  .disclaimer { margin-top: 22px; font-family: var(--mono); font-size: 12px; color: var(--mist-dim); line-height: 1.7; }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
+  .step-content p + .code-block + p { margin-top: 10px; }
 
   @media (max-width: 900px) {
     .how-grid { grid-template-columns: 1fr 1fr; }
-    .two-col { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .nav-links.open { display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 100%; left: 0; right: 0; background: var(--void-2); border-bottom: 1px solid var(--edge); padding: 18px 28px; gap: 16px; }
-    .nav-toggle { display: grid; place-items: center; margin-left: auto; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--edge); background: transparent; color: var(--paper); cursor: pointer; }
-    .nav-toggle svg { width: 20px; height: 20px; }
   }
   @media (max-width: 640px) {
     .how-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
-    .wrap { padding: 0 20px; }
-    .page-hero { padding: 52px 0 44px; }
-    .panel, .note-panel { padding: 22px 20px; }
-    .step-item { padding: 16px 18px; }
+    .note-panel { padding: 22px 20px; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-  :focus-visible { outline: 2px solid var(--ender); outline-offset: 3px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -209,7 +108,7 @@
 </header>
 
 <main>
-  <section class="page-hero">
+  <section class="page-hero center">
     <div class="wrap">
       <span class="eyebrow">Friends feature</span>
       <h1>Self-host the <span class="accent">Presence Relay</span></h1>
@@ -222,18 +121,18 @@
     <!-- How it works -->
     <div class="section">
       <div class="section-label reveal">How it works</div>
-      <div class="how-grid">
-        <div class="how-card reveal">
+      <div class="how-grid" data-stagger>
+        <div class="how-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
           <h3>Friend codes</h3>
           <p>Every Thendrask Launcher install generates a unique 10-character code. Share yours with friends and add theirs in-app - no accounts or sign-ups needed.</p>
         </div>
-        <div class="how-card reveal">
+        <div class="how-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <h3>Live presence</h3>
           <p>While you play, the launcher pushes your status - username, modpack, Minecraft version - to your relay every 30 seconds. Friends poll that code to see if you're online.</p>
         </div>
-        <div class="how-card reveal">
+        <div class="how-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
           <h3>Auto-expire</h3>
           <p>Entries drop off 90 seconds after the last update. Close the game and you disappear from your friends' list automatically - no stale "online" statuses.</p>
@@ -249,41 +148,41 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.3 9 9 5.2-.7 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg>
           Five steps to a live relay
         </h3>
-        <div class="step-list">
-          <div class="step-item">
+        <div class="step-list" data-stagger>
+          <div class="step-item glow reveal">
             <span class="step-num">STEP 01</span>
             <div class="step-content">
               <h4>Fork the repo</h4>
-              <p>Head to <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">github.com/Sxarlos/ThendraskLauncher</a> and click <strong style="color:var(--paper)">Fork</strong>. The relay lives in the <code style="font-family:var(--mono);font-size:12.5px;color:var(--ender-bright);background:rgba(164,114,255,0.1);padding:1px 6px;border-radius:5px;">relay/</code> folder - Render can deploy it straight from the monorepo.</p>
+              <p>Head to <a class="link" href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">github.com/Sxarlos/ThendraskLauncher</a> and click <strong style="color:var(--paper)">Fork</strong>. The relay lives in the <code class="inline">relay/</code> folder - Render can deploy it straight from the monorepo.</p>
             </div>
           </div>
-          <div class="step-item">
+          <div class="step-item glow reveal">
             <span class="step-num">STEP 02</span>
             <div class="step-content">
               <h4>Create a Web Service on Render</h4>
-              <p>Sign up at <a href="https://render.com" target="_blank" rel="noopener">render.com</a> (free), click <strong style="color:var(--paper)">New → Web Service</strong>, and connect your forked GitHub repo.</p>
+              <p>Sign up at <a class="link" href="https://render.com" target="_blank" rel="noopener">render.com</a> (free), click <strong style="color:var(--paper)">New → Web Service</strong>, and connect your forked GitHub repo.</p>
             </div>
           </div>
-          <div class="step-item">
+          <div class="step-item glow reveal">
             <span class="step-num">STEP 03</span>
             <div class="step-content">
               <h4>Set the root directory and commands</h4>
-              <p>In the Render settings, set <strong style="color:var(--paper)">Root Directory</strong> to <code style="font-family:var(--mono);font-size:12.5px;color:var(--ender-bright);background:rgba(164,114,255,0.1);padding:1px 6px;border-radius:5px;">relay</code>, then:</p>
+              <p>In the Render settings, set <strong style="color:var(--paper)">Root Directory</strong> to <code class="inline">relay</code>, then:</p>
               <div class="code-block"><span class="cm">Build command:</span>  npm install
 <span class="cm">Start command:</span>  npm start</div>
-              <p style="margin-top:10px;">Render injects the <code style="font-family:var(--mono);font-size:12.5px;color:var(--ender-bright);background:rgba(164,114,255,0.1);padding:1px 6px;border-radius:5px;">PORT</code> environment variable automatically - no extra config needed.</p>
+              <p>Render injects the <code class="inline">PORT</code> environment variable automatically - no extra config needed.</p>
             </div>
           </div>
-          <div class="step-item">
+          <div class="step-item glow reveal">
             <span class="step-num">STEP 04</span>
             <div class="step-content">
               <h4>Deploy and copy your URL</h4>
               <p>Click <strong style="color:var(--paper)">Create Web Service</strong>. Once the build completes, Render gives you a URL like:</p>
               <div class="code-block">https://ender-relay-xxxx.onrender.com</div>
-              <p style="margin-top:10px;">Copy it - you'll paste it into Thendrask Launcher next.</p>
+              <p>Copy it - you'll paste it into Thendrask Launcher next.</p>
             </div>
           </div>
-          <div class="step-item">
+          <div class="step-item glow reveal">
             <span class="step-num">STEP 05</span>
             <div class="step-content">
               <h4>Connect it in Thendrask Launcher</h4>
@@ -297,26 +196,26 @@
     <!-- Other options -->
     <div class="section">
       <div class="section-label reveal">Other hosting options</div>
-      <div class="two-col reveal">
-        <div class="panel">
+      <div class="two-col" data-stagger>
+        <div class="panel glow reveal">
           <h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
             Run locally
           </h3>
-          <p style="color:var(--mist);font-size:14.5px;margin-bottom:14px;">Good for testing. Requires Node.js 18 or newer.</p>
+          <p style="margin-bottom:14px;">Good for testing. Requires Node.js 18 or newer.</p>
           <div class="code-block">cd relay
 npm install
 npm start</div>
-          <p style="color:var(--mist);font-size:13.5px;margin-top:12px;line-height:1.55;">Runs on <code style="font-family:var(--mono);font-size:12px;color:var(--ender-bright);">http://localhost:3001</code>. Note that friends won't be able to reach a locally-running relay unless you expose it to the internet.</p>
+          <p style="font-size:13.5px;margin-top:12px;">Runs on <code class="inline">http://localhost:3001</code>. Note that friends won't be able to reach a locally-running relay unless you expose it to the internet.</p>
         </div>
-        <div class="panel">
+        <div class="panel glow reveal">
           <h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
             VPS or other cloud
           </h3>
-          <p style="color:var(--mist);font-size:14.5px;margin-bottom:14px;">Works on any host with Node.js 18+. Set the <code style="font-family:var(--mono);font-size:12px;color:var(--ender-bright);">PORT</code> env var if your host requires a specific port.</p>
+          <p style="margin-bottom:14px;">Works on any host with Node.js 18+. Set the <code class="inline">PORT</code> env var if your host requires a specific port.</p>
           <div class="code-block">PORT=8080 npm start</div>
-          <p style="color:var(--mist);font-size:13.5px;margin-top:12px;line-height:1.55;">Make sure the port is open in your firewall and that the relay URL you paste into Thendrask Launcher is publicly reachable.</p>
+          <p style="font-size:13.5px;margin-top:12px;">Make sure the port is open in your firewall and that the relay URL you paste into Thendrask Launcher is publicly reachable.</p>
         </div>
       </div>
     </div>
@@ -336,8 +235,8 @@ npm start</div>
     </div>
 
     <!-- CTA -->
-    <div style="text-align:center;margin-bottom:80px;" class="reveal">
-      <p style="color:var(--mist);font-size:16px;margin-bottom:24px;">Ready to play with friends?</p>
+    <div class="end-cta reveal">
+      <p>Ready to play with friends?</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="/download">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
@@ -378,67 +277,6 @@ npm start</div>
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navtoggle');
-  const links = document.getElementById('navlinks');
-  toggle?.addEventListener('click', () => links.classList.toggle('open'));
-  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-  }
-
-  (function () {
-    if (reduce) return;
-    const c = document.getElementById('particles');
-    const ctx = c.getContext('2d');
-    let w, h, parts;
-    function size() {
-      w = c.width = window.innerWidth; h = c.height = window.innerHeight;
-      const count = Math.min(70, Math.floor(w / 22));
-      parts = Array.from({ length: count }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        r: Math.random() * 1.6 + 0.4,
-        vy: -(Math.random() * 0.35 + 0.08), vx: (Math.random() - 0.5) * 0.18,
-        a: Math.random() * 0.5 + 0.15, tw: Math.random() * Math.PI * 2
-      }));
-    }
-    size(); window.addEventListener('resize', size);
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of parts) {
-        p.y += p.vy; p.x += p.vx; p.tw += 0.02;
-        if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; }
-        const flick = 0.6 + Math.sin(p.tw) * 0.4;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180,130,255,${p.a * flick})`; ctx.fill();
-      }
-      requestAnimationFrame(tick);
-    }
-    tick();
-  })();
-
-  (async function () {
-    const RELEASE_URL = "https://ender-supporter.eosfang0.workers.dev/release";
-    function applyTag(tag) {
-      if (!tag) return;
-      const v = /^v/i.test(tag) ? tag : "v" + tag;
-      const pill = document.getElementById("ver");
-      if (pill) pill.textContent = v;
-    }
-    try {
-      const res = await fetch(RELEASE_URL);
-      if (!res.ok) return;
-      const { tag } = await res.json();
-      applyTag(tag);
-    } catch (_) {}
-  })();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

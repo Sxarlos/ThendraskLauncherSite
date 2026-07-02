@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 - Lost in the Void | Thendrask Launcher</title>
+<meta name="description" content="This page doesn't exist - it may have been teleported away." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0A0911" />
+
+<link rel="icon" href="assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+
+<style>
+  /* ---- 404-page-specific styles ---- */
+  .lost { min-height: calc(100vh - 220px); display: grid; place-items: center; text-align: center; padding: 64px 0; }
+  .lost-code {
+    font-family: var(--display); font-weight: 700; line-height: 1;
+    font-size: clamp(96px, 20vw, 200px); letter-spacing: 0.02em;
+    background: linear-gradient(110deg, var(--ender-bright), var(--chorus), var(--portal), var(--ender-bright));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 9s linear infinite;
+    text-shadow: none;
+  }
+  .lost h1 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 4vw, 34px); margin-top: 10px; }
+  .lost p { color: var(--mist); font-size: 16.5px; margin: 14px auto 30px; max-width: 34em; }
+  .lost .cta-row { justify-content: center; }
+  .lost .hint {
+    margin-top: 34px; font-family: var(--mono); font-size: 12px; color: var(--mist-dim);
+  }
+  .lost .hint a { color: var(--ender-bright); border-bottom: 1px solid rgba(199,164,255,0.3); }
+  .lost .hint a:hover { border-color: var(--ender-bright); }
+
+  /* floating ender pearl */
+  .pearl {
+    width: 74px; height: 74px; margin: 0 auto 8px; border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #C7A4FF 0%, #7b48e8 38%, #2c1653 78%, #150b28 100%);
+    box-shadow: 0 0 46px rgba(164,114,255,0.55), inset -6px -8px 18px rgba(0,0,0,0.55);
+    animation: bob 4.5s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pearl { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="void-bg"></div>
+<canvas id="particles"></canvas>
+
+<header>
+  <nav>
+    <a href="/" class="brand">
+      <img class="logo-img" src="assets/logo.png" alt="Thendrask Launcher logo" width="30" height="30" />
+      Thendrask Launcher
+      <span class="ver" id="ver">v0.3.15</span>
+    </a>
+    <div class="nav-links" id="navlinks">
+      <a href="/features">Features</a>
+      <a href="/faq">FAQ</a>
+      <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
+      <a class="nav-cta" href="/download">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+        Download
+      </a>
+    </div>
+    <button class="nav-toggle" id="navtoggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section class="lost">
+    <div class="wrap">
+      <div class="pearl" aria-hidden="true"></div>
+      <div class="lost-code">404</div>
+      <h1>Lost in the void.</h1>
+      <p>This page doesn't exist - it may have been teleported away, or the ender pearl missed its mark. Let's get you back to solid ground.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
+          Back to home
+        </a>
+        <a class="btn btn-ghost" href="/download">Download the launcher</a>
+      </div>
+      <p class="hint">Think this is a broken link? <a href="https://github.com/Sxarlos/ThendraskLauncher/issues" target="_blank" rel="noopener">Report it on GitHub</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="/" class="brand">
+        <img class="logo-img" src="assets/logo.png" alt="" width="26" height="26" />
+        Thendrask Launcher
+      </a>
+      <div class="foot-links">
+        <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
+        <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
+        <a href="/download">Download</a>
+        <a href="/features">Features</a>
+        <a href="/faq">FAQ</a>
+        <a href="/selfhost">Self-host</a>
+      </div>
+    </div>
+    <p class="disclaimer">
+      Not affiliated with, endorsed by, or associated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
