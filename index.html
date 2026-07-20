@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Thendrask Launcher | Free Open-Source Minecraft Launcher for Modrinth &amp; CurseForge</title>
-<meta name="description" content="Thendrask Launcher v0.5.1 is a free, open-source Minecraft launcher with six modpack sources, a custom pack builder, safe updates, snapshots, repair and portable backups." />
+<meta name="description" content="Thendrask Launcher v0.5.5 is a free, open-source Minecraft launcher with a dedicated GregTech Hub, six modpack sources, safe pack updates, snapshots and portable backups." />
 <link rel="canonical" href="https://thendrask.org/" />
 
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -16,13 +16,13 @@
 <!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://thendrask.org/" />
-<meta property="og:title" content="Thendrask Launcher v0.5.1 - Build it. Launch it. Keep it safe." />
-<meta property="og:description" content="Build custom modpacks, browse six sources, and protect every instance with safe updates, snapshots, repair and portable backups." />
+<meta property="og:title" content="Thendrask Launcher v0.5.5 - GregTech without the busywork." />
+<meta property="og:description" content="Manage GT New Horizons updates, verified community add-ons and special builds alongside six modpack sources and powerful instance tools." />
 <meta property="og:image" content="https://thendrask.org/assets/og.png" />
 <meta property="og:site_name" content="Thendrask Launcher" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Thendrask Launcher v0.5.1" />
-<meta name="twitter:description" content="Custom modpacks, six sources, safe updates, snapshots, repair and portable backups in one open-source launcher." />
+<meta name="twitter:title" content="Thendrask Launcher v0.5.5" />
+<meta name="twitter:description" content="A new GregTech Hub, guided setup, six modpack sources and safe instance tools in one open-source launcher." />
 <meta name="twitter:image" content="https://thendrask.org/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
@@ -122,6 +122,40 @@
   .shot .chrome i:first-child { background: var(--chorus); }
   .shot .chrome span { margin-left: 6px; font-family: var(--mono); font-size: 11px; color: var(--mist); }
   .shot img { display: block; width: 100%; height: auto; }
+
+  /* GregTech feature spotlight */
+  .gt-spotlight {
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(164,114,255,0.28); border-radius: 24px; padding: 48px;
+    background:
+      radial-gradient(700px 420px at 100% 0%, rgba(164,114,255,0.15), transparent 62%),
+      linear-gradient(145deg, rgba(26,20,42,0.94), rgba(10,9,17,0.98));
+    box-shadow: 0 32px 90px -50px rgba(164,114,255,0.7);
+  }
+  .gt-spotlight::after {
+    content: "GT"; position: absolute; right: 22px; top: -34px; pointer-events: none;
+    font-family: var(--display); font-size: clamp(120px, 20vw, 270px); font-weight: 700;
+    line-height: 1; color: rgba(255,255,255,0.018);
+  }
+  .gt-intro { position: relative; z-index: 1; display: grid; grid-template-columns: .78fr 1.22fr; gap: 42px; align-items: center; }
+  .gt-copy h2 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4vw, 46px); line-height: 1.06; margin-top: 14px; }
+  .gt-copy > p { color: var(--mist); font-size: 16.5px; margin-top: 18px; }
+  .gt-copy .cta-row { margin-top: 26px; }
+  .gt-shot { border: 1px solid var(--edge-strong); border-radius: 15px; overflow: hidden; background: var(--void-2); box-shadow: 0 26px 60px -28px rgba(0,0,0,.9); }
+  .gt-shot img { display: block; width: 100%; height: auto; }
+  .gt-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+  .gt-card { border: 1px solid var(--edge); border-radius: 14px; padding: 20px; background: rgba(7,6,12,.48); }
+  .gt-card .tag { display: inline-flex; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ender-bright); margin-bottom: 10px; }
+  .gt-card h3 { font-family: var(--display); font-size: 16px; font-weight: 600; margin-bottom: 7px; }
+  .gt-card p { color: var(--mist); font-size: 13.5px; line-height: 1.55; }
+  @media (max-width: 900px) {
+    .gt-spotlight { padding: 34px; }
+    .gt-intro { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    .gt-spotlight { padding: 26px 20px; border-radius: 18px; }
+    .gt-grid { grid-template-columns: 1fr; }
+  }
 
   /* ram comparison */
   .ram-chart { display: flex; flex-direction: column; gap: 18px; max-width: 740px; }
@@ -250,12 +284,12 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "0.5.1",
-    "description": "Free, open-source Minecraft launcher with six modpack sources, a custom pack builder, safe updates, snapshots, repair tools and portable backups.",
+    "softwareVersion": "0.5.5",
+    "description": "Free, open-source Minecraft launcher with a dedicated GregTech Hub, six modpack sources, a custom pack builder, safe updates, snapshots, repair tools and portable backups.",
     "url": "https://thendrask.org/",
     "image": "https://thendrask.org/assets/og.png",
     "downloadUrl": "https://github.com/Sxarlos/ThendraskLauncher/releases/latest",
-    "featureList": "Secure Microsoft login, Six-source modpack browser (Modrinth, CurseForge, FTB, FTB Legacy, ATLauncher, Technic), Custom modpack builder, Compatible mod search and dependency install, Safe modpack updates with automatic rollback, Snapshots, Portable backups, Repair and diagnostics, Library groups and tags, Isolated instances, Live launch logs, Server monitor, Friends and presence, In-app updates, Seven built-in themes",
+    "featureList": "Secure Microsoft login, Optional GregTech Hub, GT New Horizons stable and beta updates, Verified GTNH community add-ons, Isolated GTNH special builds, Guided first-run setup, Six-source modpack browser (Modrinth, CurseForge, FTB, FTB Legacy, ATLauncher, Technic), Custom modpack builder, Safe updates with rollback, Snapshots, Portable backups, Repair and diagnostics, Library groups and tags, Isolated instances, Live launch logs, Server monitor, Friends and presence, In-app updates, Seven built-in themes",
     "softwareRequirements": "Java 8, 17, or 21",
     "license": "https://opensource.org/licenses/MIT",
     "author": {
@@ -289,10 +323,11 @@
     <a href="#top" class="brand">
       <img class="logo-img" src="assets/logo.png" alt="Thendrask Launcher logo" width="30" height="30" />
       Thendrask Launcher
-      <span class="ver" id="ver">v0.5.1</span>
+      <span class="ver" id="ver">v0.5.5</span>
     </a>
     <div class="nav-links" id="navlinks">
       <a href="/features">Features</a>
+      <a href="#gregtech">GregTech</a>
       <a href="#screens">Screenshots</a>
       <a href="/faq">FAQ</a>
       <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
@@ -314,9 +349,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">New in v0.5.1</span>
-        <h1>Build it. Launch it.<br /><span class="accent">Keep it safe.</span></h1>
-        <p class="lede">Thendrask Launcher is a <strong>free, open-source Minecraft launcher for Windows</strong>. Browse six modpack sources, build your own pack with compatible mods and automatic dependencies, then protect every instance with <strong>snapshots, repair tools and portable backups</strong>.</p>
+        <span class="eyebrow">New in v0.5.5</span>
+        <h1>GregTech, without<br /><span class="accent">the busywork.</span></h1>
+        <p class="lede">Thendrask Launcher is a <strong>free, open-source Minecraft launcher</strong> with a new opt-in GregTech Hub. Keep GT New Horizons current, install version-checked community add-ons and try special builds in isolated instances—alongside six familiar modpack sources.</p>
         <div class="cta-row">
           <a class="btn btn-primary" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
@@ -329,16 +364,16 @@
         </div>
         <div class="meta-line">
           <span><span class="dot"></span>MIT licensed</span>
-          <span><span class="dot"></span>v0.5.1 for Windows x64</span>
-          <span><span class="dot"></span>Safe updates &amp; rollback</span>
+          <span><span class="dot"></span>v0.5.5 for Windows x64</span>
+          <span><span class="dot"></span>Safe GTNH migration</span>
           <span><span class="dot"></span>macOS &amp; Linux public beta</span>
         </div>
       </div>
 
-      <!-- hero: real home screen (tilts with the cursor, click to zoom) -->
+      <!-- hero: main launcher dashboard (tilts with the cursor, click to zoom) -->
       <div class="tilt-wrap">
         <div class="hero-shot" data-tilt>
-          <img src="assets/screenshots/home.webp" data-lightbox data-caption="Thendrask Launcher v0.5.1 - home dashboard" alt="Thendrask Launcher v0.5.1 home dashboard showing a featured modpack, installed library, modpack browser, servers and settings" width="1440" height="900" />
+          <img src="assets/screenshots/home.webp?v=20260721" data-lightbox data-caption="Thendrask Launcher dashboard" alt="Thendrask Launcher home dashboard showing the installed library, modpack browser, servers and settings" width="1440" height="900" />
         </div>
       </div>
     </div>
@@ -393,6 +428,11 @@
       </div>
       <div class="feat-grid" data-stagger>
         <div class="feat glow reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>GregTech Hub</h3>
+          <p>Update GT New Horizons stable or beta packs, install verified community add-ons and create isolated special-build instances from one optional workspace.</p>
+        </div>
+        <div class="feat glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3>Six-source modpack browser</h3>
           <p>Search Modrinth, CurseForge, modern and legacy FTB, ATLauncher and Technic from one window, with sorting and category filters.</p>
@@ -422,9 +462,53 @@
           <h3>Friends &amp; presence</h3>
           <p>Add friends by code and see who's online and what they're playing, powered by a hardened relay you can self-host.</p>
         </div>
+        <div class="feat glow reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/><path d="M4 4h16v16H4z"/></svg></div>
+          <h3>Guided first-run setup</h3>
+          <p>A clear setup flow handles sign-in, optional CurseForge access and community features, while settings keep recommended RAM and fresh-instance video defaults under your control.</p>
+        </div>
       </div>
       <div style="margin-top:28px;text-align:center;">
         <a href="/features" class="arrow-link">See the full feature breakdown →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GREGTECH SPOTLIGHT -->
+  <section class="block" id="gregtech" style="padding-top:0;">
+    <div class="wrap">
+      <div class="gt-spotlight reveal">
+        <div class="gt-intro">
+          <div class="gt-copy">
+            <span class="eyebrow">The big v0.5.5 update</span>
+            <h2>Built for the<br /><span class="accent">GTNH rabbit hole.</span></h2>
+            <p>GregTech can be demanding without making its launcher workflow demanding too. The optional Hub gives GT New Horizons its own pack-aware workspace for official updates, compatible add-ons and experimental builds.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="/features#gregtech">Explore GregTech features</a>
+              <a class="btn btn-ghost" href="#screens">See more screens</a>
+            </div>
+          </div>
+          <div class="gt-shot">
+            <img src="assets/screenshots/gregtech-hub.png?v=20260721" data-lightbox data-caption="The new GregTech Hub in Thendrask Launcher v0.5.5" alt="GregTech Hub with GT New Horizons pack updates, compatible mod search and official release controls" width="1180" height="760" loading="lazy" />
+          </div>
+        </div>
+        <div class="gt-grid" data-stagger>
+          <div class="gt-card reveal">
+            <span class="tag">Pack updates</span>
+            <h3>Move forward without overwriting</h3>
+            <p>Stable and opt-in beta updates create a fresh GTNH instance, migrate your personal data and keep the old pack ready for rollback.</p>
+          </div>
+          <div class="gt-card reveal">
+            <span class="tag">Community workshop</span>
+            <h3>Add-ons matched to your pack</h3>
+            <p>Browse curated community releases pinned to verified GTNH versions, with required dependencies and a recovery snapshot before installation.</p>
+          </div>
+          <div class="gt-card reveal">
+            <span class="tag">Special builds</span>
+            <h3>Experiment in isolation</h3>
+            <p>Preview beta, challenge and April Fools builds in separate instances so experiments never touch your main worlds or settings.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -435,24 +519,40 @@
       <div class="sec-head reveal">
         <span class="eyebrow">See it in action</span>
         <h2>The launcher, up close.</h2>
-        <p>Fresh captures from Thendrask Launcher v0.5.1, including the new mod builder and reliability tools. Click any screenshot to zoom.</p>
+        <p>Fresh captures from Thendrask Launcher v0.5.5, including guided setup, GregTech controls, the mod builder and reliability tools. Click any screenshot to zoom.</p>
       </div>
       <div class="gallery" data-stagger>
         <div class="shot reveal">
+          <div class="chrome"><i></i><i></i><i></i><span>A calmer first launch</span></div>
+          <img src="assets/screenshots/setup-welcome.png?v=20260721" data-lightbox data-caption="A guided first-run setup" alt="Thendrask Launcher v0.5.5 welcome screen starting the guided setup wizard" width="1180" height="760" loading="lazy" />
+        </div>
+        <div class="shot reveal">
+          <div class="chrome"><i></i><i></i><i></i><span>GregTech stays optional</span></div>
+          <img src="assets/screenshots/setup-gregtech-option.png?v=20260721" data-lightbox data-caption="Choose whether to enable the GregTech Hub" alt="Thendrask Launcher setup wizard with an optional toggle to enable the GregTech Hub" width="1180" height="760" loading="lazy" />
+        </div>
+        <div class="shot reveal">
+          <div class="chrome"><i></i><i></i><i></i><span>Pack-aware settings</span></div>
+          <img src="assets/screenshots/settings-gregtech.png?v=20260721" data-lightbox data-caption="GregTech, RAM and game defaults in Settings" alt="Thendrask Launcher settings with GregTech Hub, pack-recommended RAM, No Chat Restrictions and default video options" width="1180" height="760" loading="lazy" />
+        </div>
+        <div class="shot reveal">
+          <div class="chrome"><i></i><i></i><i></i><span>Beta and special GTNH builds</span></div>
+          <img src="assets/screenshots/gregtech-special-builds.png?v=20260721" data-lightbox data-caption="Preview beta and special GT New Horizons builds" alt="GregTech Hub showing stable GT New Horizons updates, beta previews, special builds and verified community releases" width="1180" height="760" loading="lazy" />
+        </div>
+        <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>Discover packs across six sources</span></div>
-          <img src="assets/screenshots/browse.webp" data-lightbox data-caption="Discover packs across six sources" alt="Thendrask Launcher v0.5.1 browsing popular Modrinth modpacks with version, category and loader filters" width="1440" height="900" />
+          <img src="assets/screenshots/browse.webp?v=20260721" data-lightbox data-caption="Discover packs across six sources" alt="Thendrask Launcher browsing popular Modrinth modpacks with version, category and loader filters" width="1440" height="900" loading="lazy" />
         </div>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>Build and tune your own modpack</span></div>
-          <img src="assets/screenshots/mods.webp" data-lightbox data-caption="Build and tune your own modpack" alt="Thendrask Launcher v0.5.1 mod management screen with compatible Modrinth and CurseForge search, pack update and included mods" width="1440" height="900" />
+          <img src="assets/screenshots/mods.webp?v=20260721" data-lightbox data-caption="Build and tune your own modpack" alt="Thendrask Launcher mod management screen with compatible Modrinth and CurseForge search, pack update and included mods" width="1440" height="900" loading="lazy" />
         </div>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>Snapshots, repair and portable backups</span></div>
-          <img src="assets/screenshots/maintenance.webp" data-lightbox data-caption="Snapshots, repair and portable backups" alt="Thendrask Launcher v0.5.1 instance tools showing snapshots, verification, diagnostics, storage totals and portable backup export" width="1440" height="900" />
+          <img src="assets/screenshots/maintenance.webp?v=20260721" data-lightbox data-caption="Snapshots, repair and portable backups" alt="Thendrask Launcher instance tools showing snapshots, verification, diagnostics, storage totals and portable backup export" width="1440" height="900" loading="lazy" />
         </div>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>Live server status at a glance</span></div>
-          <img src="assets/screenshots/servers.webp" data-lightbox data-caption="Live server status at a glance" alt="Thendrask Launcher v0.5.1 server monitor showing saved servers with Minecraft versions, player counts and live ping" width="1440" height="900" />
+          <img src="assets/screenshots/servers.webp?v=20260721" data-lightbox data-caption="Live server status at a glance" alt="Thendrask Launcher server monitor showing saved servers with Minecraft versions, player counts and live ping" width="1440" height="900" loading="lazy" />
         </div>
       </div>
     </div>
