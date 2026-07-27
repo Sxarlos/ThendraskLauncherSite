@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/site.css?v=20260702" />
+<link rel="stylesheet" href="assets/site.css?v=20260727c" />
 
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
       "name": "What Java version do I need?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Java 21 for Minecraft 1.20.5 and newer. Java 17 for versions 1.17–1.20.4. Java 8 for anything older."
+        "text": "No separate Java installation is required. Thendrask detects the runtime required by each Minecraft release and downloads a compatible version when necessary. Custom Java paths remain available in Settings."
       }
     },
     {
@@ -214,7 +214,7 @@
     <a href="/" class="brand">
       <img class="logo-img" src="assets/logo.png" alt="Thendrask Launcher logo" width="30" height="30" />
       Thendrask Launcher
-      <span class="ver" id="ver">v0.5.5</span>
+      <span class="ver" id="ver">Latest</span>
     </a>
     <div class="nav-links" id="navlinks">
       <a href="/features">Features</a>
@@ -223,7 +223,6 @@
       <a href="/faq" class="active">FAQ</a>
       <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
       <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
-      <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
       <a class="nav-cta" href="/download">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
         Download
@@ -373,13 +372,17 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </summary>
             <div class="faq-body">
-              Java requirements are set by Minecraft, not Thendrask Launcher:
-              <br /><br />
-              <strong>Java 21</strong> - Minecraft 1.20.5 and newer<br />
-              <strong>Java 17</strong> - Minecraft 1.17 through 1.20.4<br />
-              <strong>Java 8</strong> - Minecraft 1.16.5 and older<br />
-              <br />
-              You'll need the correct version installed on your system before launching those versions.
+              <strong>No separate Java installation is required.</strong> Thendrask determines the Java version required by each Minecraft release and downloads a compatible runtime when necessary. Advanced users can still select a custom Java installation in Settings.
+            </div>
+          </details>
+
+          <details id="diagnostics">
+            <summary>
+              How do sanitized diagnostics work?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-body">
+              The diagnostics tool creates a ZIP you choose to export. It includes environment details and recent launcher or game logs useful for troubleshooting, while removing known credentials and authentication tokens. Review the archive before sharing it and attach it only to a report you trust.
             </div>
           </details>
 
@@ -439,7 +442,7 @@
         <h2>Still have questions?</h2>
         <p>Open an issue on GitHub or check the README - the community and source code are always there.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
+          <a class="btn btn-primary" data-windows-download href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
             Download for Windows
           </a>
@@ -462,7 +465,6 @@
       <div class="foot-links">
         <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
         <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
-        <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
         <a href="/download">Download</a>
         <a href="/features">Features</a>
         <a href="/faq">FAQ</a>
@@ -477,6 +479,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=20260702"></script>
+<script type="module" src="assets/site.js?v=20260727"></script>
 </body>
 </html>

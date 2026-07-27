@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Features | Thendrask Launcher - Open-Source Minecraft Launcher</title>
-<meta name="description" content="Explore Thendrask Launcher v0.5.5: the optional GregTech Hub, GTNH updates and add-ons, six modpack sources, guided setup, safe updates, repair and backups." />
+<meta name="description" content="Explore Thendrask Launcher: the optional GregTech Hub, GTNH updates and add-ons, six modpack sources, guided setup, safe updates, repair and backups." />
 <link rel="canonical" href="https://thendrask.org/features" />
 
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/site.css?v=20260702" />
+<link rel="stylesheet" href="assets/site.css?v=20260727c" />
 
 <style>
   /* ---- features-page-specific styles ---- */
@@ -87,7 +87,7 @@
     <a href="/" class="brand">
       <img class="logo-img" src="assets/logo.png" alt="Thendrask Launcher logo" width="30" height="30" />
       Thendrask Launcher
-      <span class="ver" id="ver">v0.5.5</span>
+      <span class="ver" id="ver">Latest</span>
     </a>
     <div class="nav-links" id="navlinks">
       <a href="/features" class="active">Features</a>
@@ -97,7 +97,6 @@
       <a href="/faq">FAQ</a>
       <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
       <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
-      <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
       <a class="nav-cta" href="/download">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
         Download
@@ -114,7 +113,7 @@
     <div class="wrap">
       <span class="eyebrow">What's inside</span>
       <h1>Everything you need.<br /><span class="accent">Nothing you don't.</span></h1>
-      <p>Thendrask Launcher v0.5.5 adds a dedicated, opt-in GregTech workspace and a guided first run to the launcher’s modpack, customisation, repair and backup tools.</p>
+      <p>Thendrask combines a dedicated, opt-in GregTech workspace and guided first run with multi-source modpack browsing, customisation, repair and backup tools.</p>
     </div>
   </section>
 
@@ -122,7 +121,7 @@
 
     <!-- GregTech Hub -->
     <div class="feat-section" id="gregtech">
-      <div class="section-label reveal">New in v0.5.5 · GregTech Hub</div>
+      <div class="section-label reveal">Optional specialist tools &middot; GregTech Hub</div>
 
       <div class="feat-row three" data-stagger>
         <div class="feat-card glow reveal">
@@ -370,81 +369,114 @@
     </div>
 
     <!-- Comparison -->
-    <div class="feat-section">
-      <div class="section-label reveal">How it compares</div>
+    <div class="feat-section" id="comparison">
+      <div class="section-label reveal">Modpack source compatibility</div>
+      <p class="cmp-intro reveal">A factual view of built-in pack browsing and installation. This does not rank overall launcher quality, performance, safety, or suitability.</p>
       <div class="cmp-table reveal" style="margin-top:14px;">
         <div class="cmp-row cmp-head">
           <span>Feature</span>
           <span>CurseForge</span>
-          <span>Thendrask Launcher</span>
+          <span>Thendrask</span>
           <span>Prism</span>
+          <span>Modrinth</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Free to use</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
+          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Open source</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> MIT</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> GPL</span>
+          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Ads in launcher</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Yes</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> No</span>
+          <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Yes</span>
         </div>
         <div class="cmp-row">
-          <span class="cmp-feat">Modrinth support</span>
-          <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
-          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
-          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
+          <span class="cmp-feat">Browse Modrinth packs</span>
+          <span class="cmp-none">Not built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-support">Built in</span>
         </div>
         <div class="cmp-row">
-          <span class="cmp-feat">FTB / ATLauncher / Technic</span>
-          <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
-          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
-          <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
+          <span class="cmp-feat">Browse CurseForge packs</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-none">Not built in</span>
         </div>
         <div class="cmp-row">
+          <span class="cmp-feat">Browse ATLauncher packs</span>
+          <span class="cmp-none">Not built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-none">Not built in</span>
+        </div>
+        <div class="cmp-row">
+          <span class="cmp-feat">Browse Technic packs</span>
+          <span class="cmp-none">Not built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-support">Built in</span>
+          <span class="cmp-none">Not built in</span>
+        </div>
+        <div class="cmp-row">
+          <span class="cmp-feat">FTB support</span>
+          <span class="cmp-none">Not built in</span>
+          <span class="cmp-support">Direct browsing</span>
+          <span class="cmp-partial">Legacy + import</span>
+          <span class="cmp-none">Not built in</span>
+        </div>
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Server monitor</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Quick connect to server</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Friends &amp; presence</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Discord Rich Presence</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Shader auto-install</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> Yes</span>
           <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> No</span>
         </div>
-        <div class="cmp-row">
+        <div class="cmp-row" hidden>
           <span class="cmp-feat">Built-in themes</span>
           <span class="cmp-mid">1</span>
           <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> 7</span>
           <span class="cmp-mid">Several</span>
         </div>
+      </div>
+      <div class="comparison-disclosure reveal">
+        <strong>About this matrix</strong>
+        <p>Last checked 27 July 2026 against public, official documentation. “Built in” means the launcher provides an integrated catalogue for browsing and installing that source; it does not cover manual archive imports. Prism’s FTB entry means FTB Legacy browsing plus FTB App import, not direct browsing of the current FTB catalogue.</p>
+        <p>Sources: <a class="link" href="https://prismlauncher.org/wiki/getting-started/download-modpacks/" target="_blank" rel="noopener">Prism pack providers</a>, <a class="link" href="https://modrinth.com/app/" target="_blank" rel="noopener">Modrinth App</a>, and <a class="link" href="https://support.curseforge.com/support/solutions/articles/9000218572-minecraft-getting-started" target="_blank" rel="noopener">CurseForge</a>. Third-party product names are trademarks of their respective owners. This independent compatibility matrix does not imply affiliation, sponsorship, or endorsement. If an entry has changed, <a class="link" href="https://github.com/Sxarlos/ThendraskLauncherSite/issues/new" target="_blank" rel="noopener">report a correction</a>.</p>
       </div>
     </div>
 
@@ -474,7 +506,6 @@
       <div class="foot-links">
         <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
         <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
-        <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
         <a href="/download">Download</a>
         <a href="/features">Features</a>
         <a href="/faq">FAQ</a>
@@ -489,6 +520,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=20260702"></script>
+<script type="module" src="assets/site.js?v=20260727"></script>
 </body>
 </html>

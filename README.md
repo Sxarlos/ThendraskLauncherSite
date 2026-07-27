@@ -12,7 +12,9 @@ The landing page for [Thendrask Launcher](https://github.com/Sxarlos/ThendraskLa
 
 Every push to `main` triggers an automatic deploy via Cloudflare Pages.
 
-To run locally just open `index.html` in a browser — no server needed.
+To run locally, use `node preview-server.mjs` and open
+`http://127.0.0.1:8765`. The preview server supports the same clean routes used
+by the deployed site.
 
 ## Related
 

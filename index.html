@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Thendrask Launcher | Free Open-Source Minecraft Launcher for Modrinth &amp; CurseForge</title>
-<meta name="description" content="Thendrask Launcher v0.5.5 is a free, open-source Minecraft launcher with a dedicated GregTech Hub, six modpack sources, safe pack updates, snapshots and portable backups." />
+<meta name="description" content="Every modpack source in one dependable, open-source Minecraft launcher. Browse Modrinth, CurseForge, FTB, ATLauncher and Technic, build custom instances, and recover safely." />
 <link rel="canonical" href="https://thendrask.org/" />
 
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -16,13 +16,13 @@
 <!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://thendrask.org/" />
-<meta property="og:title" content="Thendrask Launcher v0.5.5 - GregTech without the busywork." />
-<meta property="og:description" content="Manage GT New Horizons updates, verified community add-ons and special builds alongside six modpack sources and powerful instance tools." />
+<meta property="og:title" content="Thendrask Launcher - Every modpack source. One dependable launcher." />
+<meta property="og:description" content="Browse and install packs from Modrinth, CurseForge, FTB, ATLauncher and Technic. Build custom instances and recover safely." />
 <meta property="og:image" content="https://thendrask.org/assets/og.png" />
 <meta property="og:site_name" content="Thendrask Launcher" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Thendrask Launcher v0.5.5" />
-<meta name="twitter:description" content="A new GregTech Hub, guided setup, six modpack sources and safe instance tools in one open-source launcher." />
+<meta name="twitter:title" content="Thendrask Launcher - Every modpack source" />
+<meta name="twitter:description" content="One dependable, open-source launcher for five major modpack services, custom instances and safe recovery." />
 <meta name="twitter:image" content="https://thendrask.org/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/site.css?v=20260702" />
+<link rel="stylesheet" href="assets/site.css?v=20260727c" />
 
 <style>
   /* ---- homepage-specific styles ---- */
@@ -52,6 +52,21 @@
   }
   .meta-line span { display: inline-flex; align-items: center; gap: 6px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--portal); }
+  .release-card {
+    display: grid; grid-template-columns: 1.1fr .9fr auto; gap: 24px; align-items: center;
+    border: 1px solid var(--edge-strong); border-radius: 16px; padding: 24px 28px;
+    background: linear-gradient(120deg, rgba(164,114,255,.1), rgba(52,229,200,.035));
+  }
+  .release-card h2 { font-family: var(--display); font-size: 22px; line-height: 1.2; }
+  .release-card p { color: var(--mist); font-size: 14px; margin-top: 5px; }
+  .release-status { display: flex; flex-wrap: wrap; gap: 8px; }
+  .status-pill { font-family: var(--mono); font-size: 11px; color: var(--mist); border: 1px solid var(--edge); border-radius: 999px; padding: 6px 10px; }
+  .status-pill.stable { color: var(--portal); border-color: rgba(52,229,200,.28); }
+  .project-grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
+  .project-card { display:flex; flex-direction:column; min-height:280px; }
+  .project-actions { display:flex; flex-direction:column; align-items:flex-start; gap:16px; margin-top:auto; padding-top:24px; }
+  .project-actions .btn { padding:11px 17px; }
+  .project-secondary { display:flex; flex-wrap:wrap; gap:12px 20px; }
 
   /* real hero screenshot */
   .hero-shot {
@@ -259,6 +274,9 @@
 
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .release-card { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
+    .project-card { min-height:0; }
     .feat-grid, .steps { grid-template-columns: 1fr 1fr; }
     .gallery { grid-template-columns: 1fr; }
   }
@@ -271,47 +289,7 @@
   }
 </style>
 
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Thendrask Launcher",
-    "applicationCategory": "GameApplication",
-    "operatingSystem": "Windows, macOS, Linux",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "softwareVersion": "0.5.5",
-    "description": "Free, open-source Minecraft launcher with a dedicated GregTech Hub, six modpack sources, a custom pack builder, safe updates, snapshots, repair tools and portable backups.",
-    "url": "https://thendrask.org/",
-    "image": "https://thendrask.org/assets/og.png",
-    "downloadUrl": "https://github.com/Sxarlos/ThendraskLauncher/releases/latest",
-    "featureList": "Secure Microsoft login, Optional GregTech Hub, GT New Horizons stable and beta updates, Verified GTNH community add-ons, Isolated GTNH special builds, Guided first-run setup, Six-source modpack browser (Modrinth, CurseForge, FTB, FTB Legacy, ATLauncher, Technic), Custom modpack builder, Safe updates with rollback, Snapshots, Portable backups, Repair and diagnostics, Library groups and tags, Isolated instances, Live launch logs, Server monitor, Friends and presence, In-app updates, Seven built-in themes",
-    "softwareRequirements": "Java 8, 17, or 21",
-    "license": "https://opensource.org/licenses/MIT",
-    "author": {
-      "@type": "Person",
-      "name": "Sxarlos"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Thendrask Launcher",
-    "url": "https://thendrask.org/"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Thendrask Launcher",
-    "url": "https://thendrask.org/",
-    "logo": "https://thendrask.org/assets/logo.png"
-  }
-]
-</script>
+<script id="software-schema" type="application/ld+json"></script>
 </head>
 <body>
 <div class="void-bg"></div>
@@ -323,7 +301,7 @@
     <a href="#top" class="brand">
       <img class="logo-img" src="assets/logo.png" alt="Thendrask Launcher logo" width="30" height="30" />
       Thendrask Launcher
-      <span class="ver" id="ver">v0.5.5</span>
+      <span class="ver" id="ver">Latest</span>
     </a>
     <div class="nav-links" id="navlinks">
       <a href="/features">Features</a>
@@ -332,7 +310,6 @@
       <a href="/faq">FAQ</a>
       <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
       <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
-      <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
       <a class="nav-cta" href="/download">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
         Download
@@ -349,11 +326,11 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">New in v0.5.5</span>
-        <h1>GregTech, without<br /><span class="accent">the busywork.</span></h1>
-        <p class="lede">Thendrask Launcher is a <strong>free, open-source Minecraft launcher</strong> with a new opt-in GregTech Hub. Keep GT New Horizons current, install version-checked community add-ons and try special builds in isolated instances—alongside six familiar modpack sources.</p>
+        <span class="eyebrow">Open-source Minecraft launcher</span>
+        <h1>Every modpack source.<br /><span class="accent">One dependable launcher.</span></h1>
+        <p class="lede">Browse and install packs from Modrinth, CurseForge, FTB, ATLauncher and Technic. Build custom instances, keep them updated safely, and recover from problems without losing your worlds.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
+          <a class="btn btn-primary" data-windows-download href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
             Download for Windows
           </a>
@@ -364,8 +341,8 @@
         </div>
         <div class="meta-line">
           <span><span class="dot"></span>MIT licensed</span>
-          <span><span class="dot"></span>v0.5.5 for Windows x64</span>
-          <span><span class="dot"></span>Safe GTNH migration</span>
+          <span><span class="dot"></span><span data-current-version>Latest</span> for Windows x64</span>
+          <span><span class="dot"></span>Safe updates and recovery</span>
           <span><span class="dot"></span>macOS &amp; Linux public beta</span>
         </div>
       </div>
@@ -379,26 +356,20 @@
     </div>
   </section>
 
-  <!-- LIVE STATS -->
-  <section class="stats" aria-label="Project statistics">
+  <!-- LATEST RELEASE -->
+  <section class="stats" aria-label="Latest release">
     <div class="wrap">
-      <div class="stats-strip reveal" id="gh-stats">
-        <div class="stat">
-          <div class="num"><span class="count" id="stat-downloads">—</span></div>
-          <div class="lbl">Downloads</div>
+      <div class="release-card reveal">
+        <div>
+          <h2>Latest release: <span data-current-version>Latest</span></h2>
+          <p>Released <span data-current-version-date>recently</span> &middot; Launch fixes &middot; Offline mode &middot; Reliability improvements</p>
         </div>
-        <div class="stat">
-          <div class="num"><span class="count" id="stat-stars">—</span></div>
-          <div class="lbl">GitHub stars</div>
+        <div class="release-status">
+          <span class="status-pill stable">Windows &middot; Stable</span>
+          <span class="status-pill">macOS &middot; Public beta</span>
+          <span class="status-pill">Linux &middot; Public beta</span>
         </div>
-        <div class="stat">
-          <div class="num"><span class="count" data-count="6">6</span></div>
-          <div class="lbl">Modpack sources</div>
-        </div>
-        <div class="stat">
-          <div class="num"><span class="count" data-count="7">7</span></div>
-          <div class="lbl">Built-in themes</div>
-        </div>
+        <a class="btn btn-ghost" data-latest-release href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">Release notes</a>
       </div>
     </div>
   </section>
@@ -480,8 +451,8 @@
       <div class="gt-spotlight reveal">
         <div class="gt-intro">
           <div class="gt-copy">
-            <span class="eyebrow">The big v0.5.5 update</span>
-            <h2>Built for the<br /><span class="accent">GTNH rabbit hole.</span></h2>
+            <span class="eyebrow">Optional specialist tools</span>
+            <h2>GregTech, without<br /><span class="accent">the busywork.</span></h2>
             <p>GregTech can be demanding without making its launcher workflow demanding too. The optional Hub gives GT New Horizons its own pack-aware workspace for official updates, compatible add-ons and experimental builds.</p>
             <div class="cta-row">
               <a class="btn btn-primary" href="/features#gregtech">Explore GregTech features</a>
@@ -489,7 +460,7 @@
             </div>
           </div>
           <div class="gt-shot">
-            <img src="assets/screenshots/gregtech-hub.png?v=20260721" data-lightbox data-caption="The new GregTech Hub in Thendrask Launcher v0.5.5" alt="GregTech Hub with GT New Horizons pack updates, compatible mod search and official release controls" width="1180" height="760" loading="lazy" />
+            <img src="assets/screenshots/gregtech-hub.png?v=20260721" data-lightbox data-caption="The GregTech Hub in the current Thendrask Launcher release" alt="GregTech Hub with GT New Horizons pack updates, compatible mod search and official release controls" width="1180" height="760" loading="lazy" />
           </div>
         </div>
         <div class="gt-grid" data-stagger>
@@ -519,12 +490,12 @@
       <div class="sec-head reveal">
         <span class="eyebrow">See it in action</span>
         <h2>The launcher, up close.</h2>
-        <p>Fresh captures from Thendrask Launcher v0.5.5, including guided setup, GregTech controls, the mod builder and reliability tools. Click any screenshot to zoom.</p>
+        <p>Fresh captures from the current Thendrask Launcher release, including guided setup, GregTech controls, the mod builder and reliability tools. Click any screenshot to zoom.</p>
       </div>
       <div class="gallery" data-stagger>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>A calmer first launch</span></div>
-          <img src="assets/screenshots/setup-welcome.png?v=20260721" data-lightbox data-caption="A guided first-run setup" alt="Thendrask Launcher v0.5.5 welcome screen starting the guided setup wizard" width="1180" height="760" loading="lazy" />
+          <img src="assets/screenshots/setup-welcome.png?v=20260721" data-lightbox data-caption="A guided first-run setup" alt="Thendrask Launcher welcome screen starting the guided setup wizard" width="1180" height="760" loading="lazy" />
         </div>
         <div class="shot reveal">
           <div class="chrome"><i></i><i></i><i></i><span>GregTech stays optional</span></div>
@@ -591,57 +562,35 @@
     </div>
   </section>
 
-  <!-- RAM COMPARISON -->
-  <section class="block" id="performance" style="padding-top:0;">
+  <!-- PROJECT MATURITY -->
+  <section class="block" id="roadmap" style="padding-top:0;">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">Resource usage</span>
-        <h2>Easy on RAM. Hard on features.</h2>
-        <p>Some Electron-based launchers can use significant memory under load. Thendrask Launcher stays lean - sitting comfortably close to native launchers at idle, well below what CurseForge uses when a modpack launches.</p>
+        <span class="eyebrow">Built in public</span>
+        <h2>Maintained by Sxarlos.</h2>
+        <p>I build Thendrask to make modded Minecraft less fragile: fewer launchers, safer updates, and practical recovery tools when a pack breaks. Development, releases, and issue tracking are public on GitHub.</p>
       </div>
-      <div class="ram-chart reveal">
-        <div class="ram-row">
-          <div class="ram-label">
-            <span class="ram-name">CurseForge <span class="ram-badge ram-badge-warn">up to ~1 GB launching</span></span>
-            <span class="ram-val">~200 MB idle</span>
-          </div>
-          <div class="ram-track">
-            <div class="ram-fill ram-fill-high" style="--w:100%"></div>
-          </div>
-        </div>
-        <div class="ram-row ram-row-ender">
-          <div class="ram-label">
-            <span class="ram-name">Thendrask Launcher <span class="ram-badge">this launcher</span></span>
-            <span class="ram-val">~30–40 MB idle</span>
-          </div>
-          <div class="ram-track">
-            <div class="ram-fill ram-fill-ender" style="--w:18%"></div>
+      <div class="project-grid" data-stagger>
+        <div class="panel project-card glow reveal">
+          <h3>Recent release notes</h3>
+          <p><strong style="color:var(--paper)"><span data-current-version>Latest</span> &middot; <span data-current-version-date>recently</span></strong><br />Launch fixes, offline mode, and reliability improvements across instance startup and recovery.</p>
+          <div class="project-actions">
+            <a class="btn btn-ghost" data-latest-release href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">Read release notes</a>
+            <div class="project-secondary">
+              <a class="arrow-link" href="https://github.com/Sxarlos/ThendraskLauncher/releases" target="_blank" rel="noopener">All releases &rarr;</a>
+            </div>
           </div>
         </div>
-        <div class="ram-row">
-          <div class="ram-label">
-            <span class="ram-name">Prism Launcher</span>
-            <span class="ram-val">~22 MB idle</span>
+        <div class="panel project-card portal glow reveal">
+          <h3>Roadmap and feedback</h3>
+          <p>Follow planned work and open development on GitHub. If something breaks, report it with your launcher version, operating system, and a sanitized diagnostic bundle.</p>
+          <div class="project-actions">
+            <a class="btn btn-ghost" href="https://github.com/Sxarlos/ThendraskLauncher/issues/new/choose" target="_blank" rel="noopener">Report a problem</a>
+            <div class="project-secondary">
+              <a class="arrow-link" href="https://github.com/Sxarlos/ThendraskLauncher/issues" target="_blank" rel="noopener">View roadmap &rarr;</a>
+              <a class="arrow-link" href="/faq#diagnostics">How diagnostics are sanitized &rarr;</a>
+            </div>
           </div>
-          <div class="ram-track">
-            <div class="ram-fill ram-fill-low" style="--w:11%"></div>
-          </div>
-        </div>
-      </div>
-      <p class="ram-note">Measured at idle on Windows. Figures are from real testing - actual usage varies by system, version, and background processes.</p>
-
-      <div class="cmp-table reveal">
-        <div class="cmp-row cmp-head">
-          <span></span>
-          <span>CurseForge</span>
-          <span>Thendrask Launcher</span>
-          <span>Prism</span>
-        </div>
-        <div class="cmp-row">
-          <span class="cmp-feat">Ads in launcher</span>
-          <span class="cmp-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Yes</span>
-          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> No</span>
-          <span class="cmp-good"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L19 7"/></svg> No</span>
         </div>
       </div>
     </div>
@@ -653,7 +602,7 @@
       <div class="sec-head reveal">
         <span class="eyebrow">Get started</span>
         <h2>Playing in three steps.</h2>
-        <p>You'll need Java installed to launch the game - Java 21 for 1.20.5+, Java 17 for 1.17–1.20.4, Java 8 for older versions.</p>
+        <p>Java is handled automatically. Thendrask downloads a compatible runtime for each Minecraft release when necessary, while still allowing custom Java paths in Settings.</p>
       </div>
       <div class="steps" data-stagger>
         <div class="step glow reveal">
@@ -725,7 +674,7 @@
         <h2>Ready to enter <span class="accent">the End</span>?</h2>
         <p>Free, open source, and updated from inside the app. Download once and you're set.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" data-release-exe href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
+          <a class="btn btn-primary" data-windows-download href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
             Download for Windows
           </a>
@@ -747,8 +696,7 @@
       <div class="foot-links">
         <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a>
         <a href="https://discord.gg/zzWF8nBhYD" target="_blank" rel="noopener">Discord</a>
-        <a href="https://www.youtube.com/@EnderClientApp" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">Releases</a>
+        <a data-latest-release href="https://github.com/Sxarlos/ThendraskLauncher/releases/latest" target="_blank" rel="noopener">Releases</a>
         <a href="https://github.com/Sxarlos/ThendraskLauncher/blob/main/README.md" target="_blank" rel="noopener">Docs</a>
         <a href="/features">Features</a>
         <a href="/download">Download</a>
@@ -764,6 +712,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=20260702"></script>
+<script type="module" src="assets/site.js?v=20260727"></script>
 </body>
 </html>

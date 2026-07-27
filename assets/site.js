@@ -1,3 +1,10 @@
+import {
+  CURRENT_VERSION,
+  CURRENT_VERSION_DATE,
+  WINDOWS_DOWNLOAD,
+  LATEST_RELEASE
+} from './config.js';
+
 /* =========================================================
    Thendrask Launcher — shared site behaviour (all pages)
    Feature blocks are gated on element presence, so this one
@@ -9,6 +16,55 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- shared release configuration ---------- */
+  (function applySiteConfig() {
+    var versionWithPrefix = 'v' + CURRENT_VERSION;
+    $$('#ver, [data-current-version]').forEach(function (el) {
+      el.textContent = versionWithPrefix;
+    });
+    $$('[data-current-version-raw]').forEach(function (el) {
+      el.textContent = CURRENT_VERSION;
+    });
+    $$('[data-current-version-date]').forEach(function (el) {
+      el.textContent = CURRENT_VERSION_DATE;
+    });
+    $$('[data-windows-download]').forEach(function (link) {
+      link.href = WINDOWS_DOWNLOAD;
+    });
+    $$('[data-latest-release]').forEach(function (link) {
+      link.href = LATEST_RELEASE;
+    });
+
+    var schema = $('#software-schema');
+    if (schema) {
+      schema.textContent = JSON.stringify([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'Thendrask Launcher',
+          applicationCategory: 'GameApplication',
+          operatingSystem: 'Windows, macOS, Linux',
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+          softwareVersion: CURRENT_VERSION,
+          description: 'Free, open-source Minecraft launcher for Modrinth, CurseForge, FTB, ATLauncher and Technic, with custom instances, safe updates, recovery tools and an optional GregTech Hub.',
+          url: 'https://thendrask.org/',
+          image: 'https://thendrask.org/assets/og.png',
+          downloadUrl: WINDOWS_DOWNLOAD,
+          featureList: 'Secure Microsoft login, automatic Java runtime management, optional GregTech Hub, multi-source modpack browser, custom instances, safe updates with rollback, snapshots, portable backups, repair and sanitized diagnostics',
+          softwareRequirements: 'Windows 10 or 11, 64-bit; 4 GB RAM minimum; Microsoft account that owns Minecraft: Java Edition; internet connection for setup, authentication and downloads',
+          license: 'https://opensource.org/licenses/MIT',
+          author: { '@type': 'Person', name: 'Sxarlos' }
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Thendrask Launcher',
+          url: 'https://thendrask.org/'
+        }
+      ]);
+    }
+  })();
 
   /* ---------- mobile nav ---------- */
   var toggle = $('#navtoggle');
@@ -251,53 +307,6 @@
       });
       if (empty) empty.style.display = any ? 'none' : '';
     });
-  })();
-
-  /* ---------- latest release (version pill + download links) ---------- */
-  (function release() {
-    fetch('https://ender-supporter.eosfang0.workers.dev/release')
-      .then(function (res) { return res.ok ? res.json() : null; })
-      .then(function (data) {
-        if (!data) return;
-        if (data.tag) {
-          var v = /^v/i.test(data.tag) ? data.tag : 'v' + data.tag;
-          $$('#ver, [data-release-ver]').forEach(function (el) { el.textContent = v; });
-          $$('[data-release-raw]').forEach(function (el) { el.textContent = v.replace(/^v/i, ''); });
-        }
-        if (data.exe) {
-          $$('[data-release-exe]').forEach(function (a) { a.href = data.exe; });
-        }
-      })
-      .catch(function () {});
-  })();
-
-  /* ---------- GitHub stats strip (homepage) ---------- */
-  (function ghStats() {
-    if (!$('#gh-stats')) return;
-    var API = 'https://api.github.com/repos/Sxarlos/ThendraskLauncher';
-    function setStat(sel, value) {
-      var el = $(sel);
-      if (!el || !isFinite(value)) return;
-      el.setAttribute('data-count', value);
-      var r = el.closest('.reveal');
-      if (reduce || !r || r.classList.contains('in')) runCounter(el);
-    }
-    fetch(API)
-      .then(function (res) { return res.ok ? res.json() : null; })
-      .then(function (repo) {
-        if (repo) setStat('#stat-stars', repo.stargazers_count);
-      })
-      .catch(function () {});
-    fetch(API + '/releases?per_page=100')
-      .then(function (res) { return res.ok ? res.json() : null; })
-      .then(function (rels) {
-        if (!Array.isArray(rels)) return;
-        var dls = rels.reduce(function (sum, r) {
-          return sum + (r.assets || []).reduce(function (s, a) { return s + (a.download_count || 0); }, 0);
-        }, 0);
-        setStat('#stat-downloads', dls);
-      })
-      .catch(function () {});
   })();
 
   /* ---------- supporters (homepage) ---------- */

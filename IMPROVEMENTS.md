@@ -23,9 +23,10 @@ of JS. Changing the nav meant editing five files.
       into one shared `.big-cta` component.
 - [x] No-JS resilience: `.reveal` elements are only hidden when `<html class="js">`
       is set, so content is never invisible if JavaScript fails to load.
-- [x] Version fetch unified: elements opt in via `data-release-ver`,
-      `data-release-raw`, and `data-release-exe` attributes instead of
-      per-page copies of the fetch script.
+- [x] Release configuration unified in `assets/config.js`: version, release
+      date, Windows download and latest-release URL are shared by every page.
+      Elements opt in via `data-current-version`, `data-windows-download`, and
+      `data-latest-release`.
 
 ## 2. New features
 
