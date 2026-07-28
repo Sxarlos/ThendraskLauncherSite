@@ -47,11 +47,11 @@ import {
           operatingSystem: 'Windows, macOS, Linux',
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
           softwareVersion: CURRENT_VERSION,
-          description: 'Free, open-source Minecraft launcher for Modrinth, CurseForge, FTB, ATLauncher and Technic, with custom instances, safe updates, recovery tools and an optional GregTech Hub.',
+          description: 'Free, open-source Minecraft launcher with Modrinth and FTB browsing, custom instances, safe updates, recovery tools and an optional GregTech Hub.',
           url: 'https://thendrask.org/',
           image: 'https://thendrask.org/assets/og.png',
           downloadUrl: WINDOWS_DOWNLOAD,
-          featureList: 'Secure Microsoft login, automatic Java runtime management, optional GregTech Hub, multi-source modpack browser, custom instances, safe updates with rollback, snapshots, portable backups, repair and sanitized diagnostics',
+          featureList: 'Secure Microsoft login, automatic Java runtime management, optional GregTech Hub, Modrinth and FTB modpack browsing, custom instances, safe updates with rollback, snapshots, portable backups, repair and sanitized diagnostics',
           softwareRequirements: 'Windows 10 or 11, 64-bit; 4 GB RAM minimum; Microsoft account that owns Minecraft: Java Edition; internet connection for setup, authentication and downloads',
           license: 'https://opensource.org/licenses/MIT',
           author: { '@type': 'Person', name: 'Sxarlos' }
