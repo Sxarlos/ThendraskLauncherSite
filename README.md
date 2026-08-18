@@ -1,6 +1,6 @@
 # Thendrask Launcher — Marketing Site
 
-The landing page for [Thendrask Launcher](https://github.com/Sxarlos/ThendraskLauncher), an open-source Minecraft launcher with a dedicated GregTech Hub plus Modrinth and FTB browsing.
+The landing page for [Thendrask Launcher](https://github.com/Sxarlos/ThendraskLauncher), an open-source Minecraft launcher with a dedicated GregTech Hub plus Modrinth and approved CurseForge browsing.
 
 ## Stack
 

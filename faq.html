@@ -41,7 +41,7 @@
       "name": "Is Thendrask Launcher safe?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Thendrask Launcher is fully open-source under the MIT license - every line of code is public on GitHub and can be audited by anyone. It uses Microsoft's official OAuth flow to sign you in, supports modpack downloads from CurseForge, Modrinth, and FTB, and stores only an encrypted refresh token in your OS keychain."
+        "text": "Yes. Thendrask Launcher is fully open-source under the MIT license and can be audited on GitHub. It uses Microsoft's official OAuth flow, supports approved Modrinth and CurseForge downloads, and stores only an OS-keychain-encrypted refresh token."
       }
     },
     {
@@ -81,7 +81,7 @@
       "name": "What modpack sources does Thendrask Launcher support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Public builds support browsing and installing from CurseForge, Modrinth, FTB, and FTB Legacy. ATLauncher and Technic are unavailable pending explicit provider permission."
+        "text": "Public beta builds support browsing and installing from Modrinth and approved CurseForge access. FTB, FTB Legacy, ATLauncher, and Technic provider modules are excluded pending provider approval."
       }
     },
     {
@@ -97,7 +97,7 @@
       "name": "How do I install a modpack?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Open Thendrask Launcher, sign in with your Microsoft account, open the Library browser, choose CurseForge, Modrinth, or FTB, find a pack, and hit Install. The launcher handles the rest automatically."
+        "text": "Open Thendrask Launcher, sign in with your Microsoft account, open the Library browser, choose Modrinth or CurseForge, find a pack, and hit Install. You can also import a Modrinth MRPACK or CurseForge ZIP."
       }
     },
     {
@@ -266,7 +266,7 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </summary>
             <div class="faq-body">
-              Yes. Thendrask Launcher is <strong>fully open-source under the MIT license</strong> - every line of code is public on <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a> and can be audited by anyone. It uses Microsoft's official OAuth flow to sign you in, supports modpack downloads from CurseForge, Modrinth, and FTB, and stores only an encrypted refresh token in your OS keychain. Your password is never seen or stored.
+              Yes. Thendrask Launcher is <strong>fully open-source under the MIT license</strong> - its code is public on <a href="https://github.com/Sxarlos/ThendraskLauncher" target="_blank" rel="noopener">GitHub</a> and can be audited. It uses Microsoft's official OAuth flow, supports approved Modrinth and CurseForge downloads, and stores only an OS-keychain-encrypted refresh token. Your password is never seen or stored.
             </div>
           </details>
 
@@ -324,7 +324,7 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </summary>
             <div class="faq-body">
-              Open Thendrask Launcher, sign in with your Microsoft account, then open the browser in <strong>Library</strong>. Choose CurseForge, Modrinth, or FTB, find a pack you like, and hit <strong>Install</strong>. The launcher handles the rest - downloading the pack, its mods, and the correct Minecraft version. Once complete, click Play from your library.
+              Open Thendrask Launcher, sign in with your Microsoft account, then open the browser in <strong>Library</strong>. Choose Modrinth or CurseForge, find a pack, and hit <strong>Install</strong>. You can also use the Library import button for Modrinth <code>.mrpack</code> and CurseForge ZIP files. If a CurseForge author blocks third-party downloads, the accessible files still install and the remaining items appear in a verified manual-file checklist.
             </div>
           </details>
 
@@ -352,7 +352,7 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </summary>
             <div class="faq-body">
-              Public builds can browse and install from <strong>CurseForge, Modrinth, FTB, and FTB Legacy</strong>. ATLauncher and Technic catalogue browsing and installation are unavailable pending explicit provider permission. Existing local instances and manually installed JAR files remain available.
+              Public beta builds can browse and install from <strong>Modrinth and approved CurseForge access</strong>. FTB, FTB Legacy, ATLauncher, and Technic provider code is excluded from the repository and public build pending provider approval. Existing local instances, MRPACK/CurseForge ZIP imports, and manually installed files remain available.
             </div>
           </details>
 
@@ -410,7 +410,7 @@
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </summary>
             <div class="faq-body">
-              CurseForge is a commercial launcher centred on its own catalogue. Thendrask Launcher is <strong>ad-free and open-source</strong>, with built-in CurseForge, Modrinth, and FTB browsing plus custom instances, recovery tools, friends, and server monitoring.
+              CurseForge is a commercial launcher centred on its own catalogue. Thendrask Launcher is <strong>ad-free and open-source</strong>, with approved CurseForge and Modrinth browsing plus pack imports, custom instances, recovery tools, friends, and server monitoring. CurseForge access uses the hosted Thendrask relay, so users do not enter their own API key.
             </div>
           </details>
 
@@ -468,7 +468,7 @@
         <a href="/download">Download</a>
         <a href="/features">Features</a>
         <a href="/faq">FAQ</a>
-        <a href="/selfhost">Self-host</a>
+        <a href="/selfhost">Relay</a>
         <a href="https://buymeacoffee.com/sxarlos" target="_blank" rel="noopener" style="color:#e6c800;">☕ Support</a>
       </div>
     </div>
@@ -479,6 +479,6 @@
   </div>
 </footer>
 
-<script type="module" src="assets/site.js?v=20260727"></script>
+<script type="module" src="assets/site.js?v=20260818"></script>
 </body>
 </html>
