@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Self-Host the Presence Relay | Thendrask Launcher</title>
-<meta name="description" content="Step-by-step guide to self-hosting the Thendrask Launcher presence relay on Render (free) or your own server. Powers the friends list - your data, your infrastructure." />
+<title>Relay Hosting &amp; Privacy | Thendrask Launcher</title>
+<meta name="description" content="How the hosted Thendrask relay powers friends and approved CurseForge access, plus guidance for running a private presence relay." />
 <link rel="canonical" href="https://thendrask.org/selfhost" />
 
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -15,13 +15,13 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://thendrask.org/selfhost" />
-<meta property="og:title" content="Self-Host the Presence Relay | Thendrask Launcher" />
-<meta property="og:description" content="Deploy the Thendrask Launcher friends relay in minutes on Render's free tier. Your presence data stays on infrastructure you control." />
+<meta property="og:title" content="Relay Hosting &amp; Privacy | Thendrask Launcher" />
+<meta property="og:description" content="How the hosted Thendrask relay handles short-lived friend presence and approved CurseForge requests, plus private presence hosting guidance." />
 <meta property="og:image" content="https://thendrask.org/assets/og.png" />
 <meta property="og:site_name" content="Thendrask Launcher" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Self-Host the Presence Relay | Thendrask Launcher" />
-<meta name="twitter:description" content="Deploy the Thendrask Launcher friends relay in minutes. Free, no database, no secrets." />
+<meta name="twitter:title" content="Relay Hosting &amp; Privacy | Thendrask Launcher" />
+<meta name="twitter:description" content="Understand the hosted Thendrask relay or run an optional private relay for friend presence." />
 <meta name="twitter:image" content="https://thendrask.org/assets/og.png" />
 <meta name="theme-color" content="#0A0911" />
 
@@ -110,9 +110,9 @@
 <main>
   <section class="page-hero center">
     <div class="wrap">
-      <span class="eyebrow">Friends feature</span>
-      <h1>Self-host the <span class="accent">Presence Relay</span></h1>
-      <p>The relay is a tiny Node.js server that powers Thendrask Launcher's friends list. Since your presence data should belong to you - not a third party - you run it yourself. Deploy it for free in about five minutes.</p>
+      <span class="eyebrow">Friends &amp; approved CurseForge access</span>
+      <h1>Understand the <span class="accent">Thendrask Relay</span></h1>
+      <p>Beta 6 uses <code class="inline">https://relay.sxarlos.store</code> by default. It holds short-lived friend presence in memory and forwards only the approved CurseForge API operations the launcher needs.</p>
     </div>
   </section>
 
@@ -134,7 +134,7 @@
         </div>
         <div class="how-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <h3>Auto-expire</h3>
+          <h3>No persistent presence</h3>
           <p>Entries drop off 90 seconds after the last update. Close the game and you disappear from your friends' list automatically - no stale "online" statuses.</p>
         </div>
       </div>
@@ -142,11 +142,11 @@
 
     <!-- Deploy on Render -->
     <div class="section">
-      <div class="section-label reveal">Deploy on Render (recommended - free)</div>
+      <div class="section-label reveal">Run a private presence relay (optional)</div>
       <div class="panel reveal" style="margin-bottom: 18px;">
         <h3>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.3 9 9 5.2-.7 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg>
-          Five steps to a live relay
+          Five steps to a private relay
         </h3>
         <div class="step-list" data-stagger>
           <div class="step-item glow reveal">
@@ -186,7 +186,7 @@
             <span class="step-num">STEP 05</span>
             <div class="step-content">
               <h4>Connect it in Thendrask Launcher</h4>
-              <p>Open Thendrask Launcher, go to <strong style="color:var(--paper)">Settings → API Keys → Presence Relay URL</strong>, and paste your Render URL. Friends you add will now connect through your relay.</p>
+              <p>Open Thendrask Launcher, go to <strong style="color:var(--paper)">Settings → Connections → Combined Relay URL</strong>, and paste your Render URL. Everyone who should share presence must use the same relay.</p>
             </div>
           </div>
         </div>
@@ -227,7 +227,10 @@ npm start</div>
         Good to know
       </h3>
       <ul class="note-list">
-        <li><strong>No database or secrets required.</strong> The relay is stateless - everything is held in memory. There's nothing to configure beyond deploying the file.</li>
+        <li><strong>Private hosting is optional.</strong> New installs use the hosted Thendrask relay automatically.</li>
+        <li><strong>Presence needs no database.</strong> Friend status is held in memory and expires after 90 seconds.</li>
+        <li><strong>CurseForge needs an approved project key.</strong> A private relay without <code class="inline">CURSEFORGE_API_KEY</code> can power friends but cannot provide CurseForge catalogue access. Never copy or request the Thendrask project's private key.</li>
+        <li><strong>CurseForge responses are not cached.</strong> The hosted relay returns them with <code class="inline">Cache-Control: no-store</code>.</li>
         <li><strong>Render's free tier spins down after inactivity.</strong> The first poll after a cold start may take a few seconds. Thendrask Launcher handles reconnection automatically.</li>
         <li><strong>Restarting clears all presence data.</strong> Clients re-register within 30 seconds on their next heartbeat - no manual action needed.</li>
         <li><strong>One relay can be shared by multiple people.</strong> All your friends just need to point their Thendrask Launcher at the same URL.</li>
@@ -265,7 +268,7 @@ npm start</div>
         <a href="/download">Download</a>
         <a href="/features">Features</a>
         <a href="/faq">FAQ</a>
-        <a href="/selfhost">Self-host</a>
+        <a href="/selfhost">Relay</a>
         <a href="https://buymeacoffee.com/sxarlos" target="_blank" rel="noopener" style="color:#e6c800;">☕ Support</a>
       </div>
     </div>
@@ -276,6 +279,6 @@ npm start</div>
   </div>
 </footer>
 
-<script type="module" src="assets/site.js?v=20260727"></script>
+<script type="module" src="assets/site.js?v=20260818"></script>
 </body>
 </html>

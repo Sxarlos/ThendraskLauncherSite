@@ -1,9 +1,12 @@
 import {
   CURRENT_VERSION,
   CURRENT_VERSION_DATE,
+  BETA_VERSION,
+  BETA_VERSION_DATE,
   WINDOWS_DOWNLOAD,
-  LATEST_RELEASE
-} from './config.js';
+  LATEST_RELEASE,
+  BETA_RELEASE
+} from './config.js?v=20260818';
 
 /* =========================================================
    Thendrask Launcher — shared site behaviour (all pages)
@@ -29,11 +32,20 @@ import {
     $$('[data-current-version-date]').forEach(function (el) {
       el.textContent = CURRENT_VERSION_DATE;
     });
+    $$('[data-beta-version]').forEach(function (el) {
+      el.textContent = 'v' + BETA_VERSION;
+    });
+    $$('[data-beta-version-date]').forEach(function (el) {
+      el.textContent = BETA_VERSION_DATE;
+    });
     $$('[data-windows-download]').forEach(function (link) {
       link.href = WINDOWS_DOWNLOAD;
     });
     $$('[data-latest-release]').forEach(function (link) {
       link.href = LATEST_RELEASE;
+    });
+    $$('[data-beta-release]').forEach(function (link) {
+      link.href = BETA_RELEASE;
     });
 
     var schema = $('#software-schema');
@@ -47,11 +59,11 @@ import {
           operatingSystem: 'Windows, macOS, Linux',
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
           softwareVersion: CURRENT_VERSION,
-          description: 'Free, open-source Minecraft launcher with Modrinth and FTB browsing, custom instances, safe updates, recovery tools and an optional GregTech Hub.',
+          description: 'Free, open-source Minecraft launcher with Modrinth and approved CurseForge browsing, custom instances, safe updates, recovery tools and an optional GregTech Hub.',
           url: 'https://thendrask.org/',
           image: 'https://thendrask.org/assets/og.png',
           downloadUrl: WINDOWS_DOWNLOAD,
-          featureList: 'Secure Microsoft login, automatic Java runtime management, optional GregTech Hub, Modrinth and FTB modpack browsing, custom instances, safe updates with rollback, snapshots, portable backups, repair and sanitized diagnostics',
+          featureList: 'Secure Microsoft login, automatic Java runtime management, optional GregTech Hub, Modrinth and approved CurseForge modpack browsing, MRPACK and CurseForge ZIP import, custom instances, safe updates with rollback, snapshots, portable backups, repair and sanitized diagnostics',
           softwareRequirements: 'Windows 10 or 11, 64-bit; 4 GB RAM minimum; Microsoft account that owns Minecraft: Java Edition; internet connection for setup, authentication and downloads',
           license: 'https://opensource.org/licenses/MIT',
           author: { '@type': 'Person', name: 'Sxarlos' }

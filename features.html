@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Features | Thendrask Launcher - Open-Source Minecraft Launcher</title>
-<meta name="description" content="Explore Thendrask Launcher: CurseForge, Modrinth, and FTB browsing, the optional GregTech Hub, guided setup, safe updates, repair and backups." />
+<meta name="description" content="Explore Thendrask Launcher: Modrinth and approved CurseForge browsing, pack imports, the optional GregTech Hub, safe updates, repair and backups." />
 <link rel="canonical" href="https://thendrask.org/features" />
 
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://thendrask.org/features" />
 <meta property="og:title" content="Features | Thendrask Launcher" />
-<meta property="og:description" content="Build custom packs, browse CurseForge, Modrinth, and FTB, and protect instances with safe updates, snapshots, repair, diagnostics and portable backups." />
+<meta property="og:description" content="Build custom packs, browse Modrinth and approved CurseForge, import pack archives, and protect instances with snapshots, repair and portable backups." />
 <meta property="og:image" content="https://thendrask.org/assets/og.png" />
 <meta property="og:site_name" content="Thendrask Launcher" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -113,11 +113,30 @@
     <div class="wrap">
       <span class="eyebrow">What's inside</span>
       <h1>Everything you need.<br /><span class="accent">Nothing you don't.</span></h1>
-      <p>Thendrask combines a dedicated, opt-in GregTech workspace and guided first run with multi-source modpack browsing, customisation, repair and backup tools.</p>
+      <p>Thendrask combines a dedicated, opt-in GregTech workspace and guided first run with approved Modrinth and CurseForge browsing, pack imports, customisation, repair and backup tools.</p>
     </div>
   </section>
 
   <div class="wrap">
+
+    <!-- Current beta -->
+    <div class="feat-section" id="beta">
+      <div class="section-label reveal">Current beta &middot; v0.5.8-beta.6</div>
+      <div class="feat-row three" data-stagger>
+        <div class="feat-card glow reveal">
+          <h3>Approved provider modules</h3>
+          <p>Public builds now contain only Modrinth and approved CurseForge integrations. FTB, FTB Legacy, ATLauncher, and Technic code is excluded while provider approval is pending.</p>
+        </div>
+        <div class="feat-card glow reveal">
+          <h3>CurseForge installs that finish</h3>
+          <p>Accessible pack files install normally. Author-restricted files move to a persistent manual checklist, where imported JARs or ZIPs are verified against CurseForge metadata and routed to the correct game folder.</p>
+        </div>
+        <div class="feat-card glow reveal">
+          <h3>Safer failure recovery</h3>
+          <p>A renderer recovery screen replaces blank windows, startup continues when one data section fails, and imports enforce consistent expanded-size, entry-count, and compression-ratio limits.</p>
+        </div>
+      </div>
+    </div>
 
     <!-- GregTech Hub -->
     <div class="feat-section" id="gregtech">
@@ -183,16 +202,28 @@
     <div class="feat-section">
       <div class="section-label reveal">Modpack browser</div>
 
-      <div class="feat-row" data-stagger>
+      <div class="feat-row three" data-stagger>
         <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-          <h3>CurseForge, Modrinth, and FTB</h3>
-          <p>Browse CurseForge, Modrinth, and modern or legacy FTB packs without switching apps. Find packs with source-specific search, filters, and sorting.</p>
+          <h3>Modrinth and CurseForge</h3>
+          <p>Browse the two approved providers in public builds. CurseForge requests use the hosted Thendrask relay, keeping the project API key out of the desktop app.</p>
           <div class="detail">
             <ul>
               <li>Sort by popular, updated, or newest</li>
               <li>Filter by modpack category</li>
-              <li>Install supported packs in-app</li>
+              <li>No personal CurseForge API key required</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feat-card glow reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg></div>
+          <h3>Universal pack import</h3>
+          <p>Import Modrinth <code class="inline">.mrpack</code> or CurseForge ZIP packs from one Library button. Accessible files install automatically while restricted CurseForge files stay in a persistent manual checklist.</p>
+          <div class="detail">
+            <ul>
+              <li>Live import and extraction progress</li>
+              <li>Official manual download links</li>
+              <li>Imported JARs and ZIPs verified by SHA-1 or MD5</li>
             </ul>
           </div>
         </div>
@@ -213,8 +244,8 @@
       <div class="sources-strip reveal">
         <span class="label">Supported sources</span>
         <span class="chip"><span class="d">›</span>Modrinth</span>
-        <span class="chip"><span class="d">›</span>FTB</span>
-        <span class="chip"><span class="d">›</span>FTB Legacy</span>
+        <span class="chip"><span class="d">›</span>CurseForge</span>
+        <span class="chip"><span class="d">›</span>MRPACK &amp; CurseForge ZIP import</span>
       </div>
     </div>
 
@@ -317,15 +348,15 @@
         <div class="feat-card glow reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 6.5a3 3 0 0 1 0 5.8M18 20a5.3 5.3 0 0 0-3-4.7"/></svg></div>
           <h3>Friends &amp; presence</h3>
-          <p>Add friends by code and see who's online and what they're playing in real time. The social graph runs on a small relay <strong style="color:var(--paper)">you self-host</strong> - paste its URL into Settings and your presence data never leaves infrastructure you control.</p>
+          <p>Add friends by code and see who's online and what they're playing in real time. Beta 6 configures the hardened hosted relay by default; presence is held in memory and expires after 90 seconds.</p>
           <div class="detail">
             <ul>
               <li>Add by friend code, no account required</li>
               <li>See who's online and what they're playing</li>
-              <li>Self-hosted relay - your data stays yours</li>
+              <li>Hosted relay shared with approved CurseForge access</li>
               <li>Discord Rich Presence integration</li>
             </ul>
-            <a href="/selfhost" class="arrow-link" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--mono);font-size:12px;font-weight:400;">Self-hosting guide →</a>
+            <a href="/selfhost" class="arrow-link" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:var(--mono);font-size:12px;font-weight:400;">Relay details →</a>
           </div>
         </div>
       </div>
@@ -429,7 +460,7 @@
         <div class="cmp-row">
           <span class="cmp-feat">FTB support</span>
           <span class="cmp-none">Not built in</span>
-          <span class="cmp-support">Direct browsing</span>
+          <span class="cmp-none">Unavailable</span>
           <span class="cmp-partial">Legacy + import</span>
           <span class="cmp-none">Not built in</span>
         </div>
@@ -472,7 +503,7 @@
       </div>
       <div class="comparison-disclosure reveal">
         <strong>About this matrix</strong>
-        <p>Last checked 13 August 2026 against Thendrask’s current public-build policy and public, official documentation. “Built in” means the launcher provides an integrated catalogue for browsing and installing that source; it does not cover manual archive imports. CurseForge access is provided through its approved API. ATLauncher and Technic are unavailable pending explicit provider permission. Prism’s FTB entry means FTB Legacy browsing plus FTB App import, not direct browsing of the current FTB catalogue.</p>
+        <p>Last checked 18 August 2026 against Thendrask v0.5.8-beta.6 and public, official documentation. “Built in” means the launcher provides an integrated catalogue for browsing and installing that source; it does not cover manual archive imports. Public Thendrask builds contain only the approved Modrinth and CurseForge provider modules. FTB, FTB Legacy, ATLauncher, and Technic code is excluded pending provider approval. Prism’s FTB entry means FTB Legacy browsing plus FTB App import, not direct browsing of the current FTB catalogue.</p>
         <p>Sources: <a class="link" href="https://prismlauncher.org/wiki/getting-started/download-modpacks/" target="_blank" rel="noopener">Prism pack providers</a>, <a class="link" href="https://modrinth.com/app/" target="_blank" rel="noopener">Modrinth App</a>, and <a class="link" href="https://support.curseforge.com/support/solutions/articles/9000218572-minecraft-getting-started" target="_blank" rel="noopener">CurseForge</a>. Third-party product names are trademarks of their respective owners. This independent compatibility matrix does not imply affiliation, sponsorship, or endorsement. If an entry has changed, <a class="link" href="https://github.com/Sxarlos/ThendraskLauncherSite/issues/new" target="_blank" rel="noopener">report a correction</a>.</p>
       </div>
     </div>
@@ -506,7 +537,7 @@
         <a href="/download">Download</a>
         <a href="/features">Features</a>
         <a href="/faq">FAQ</a>
-        <a href="/selfhost">Self-host</a>
+        <a href="/selfhost">Relay</a>
         <a href="https://buymeacoffee.com/sxarlos" target="_blank" rel="noopener" style="color:#e6c800;">☕ Support</a>
       </div>
     </div>
@@ -517,6 +548,6 @@
   </div>
 </footer>
 
-<script type="module" src="assets/site.js?v=20260727"></script>
+<script type="module" src="assets/site.js?v=20260818"></script>
 </body>
 </html>
